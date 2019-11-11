@@ -1,0 +1,2 @@
+class PlacingsController < ApplicationController
+end
