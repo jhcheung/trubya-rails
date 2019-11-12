@@ -1,0 +1,20 @@
+
+<% if flash[:notice] %>
+  <h2><% flash[:notice] %></h2>
+  <% elsif flash[:messages] %>
+  <h2><% flash[:messages] %></h2>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <% f.label :first_name %>
+  <% f.text_field :first_name %>
+
+  <% f.label :last_name %>
+  <% f.text_field :last_name %>
+
+  <% f.label :user_name %>
+  <% f.text_field :user_name %>
+
+  <% f.label :password_digest %>
+  <% f.text_field :password_digest %>
+<% end %>
