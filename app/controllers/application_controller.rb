@@ -1,12 +1,16 @@
 class ApplicationController < ActionController::Base
-
+    before_action :login_check
     private 
 
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
+    def login_check
+        @notifications = session[:notifications]
+        @errors = session[:errors]
+
+        if session[:user_id]
+            @logged_in_user = User.find session[:user_id]
+        else 
+            @logged_in_user = nil
+        end
     end
 
-    def require_admin
-        return head(:forbidden) unless session.include? :admin_id
-    end
 end

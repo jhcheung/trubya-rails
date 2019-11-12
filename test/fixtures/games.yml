@@ -1,14 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  winner?: false
+  winner: false
   score: 1
   user: one
   topic: one
   image: one
 
 two:
-  winner?: false
+  winner: false
   score: 1
   user: two
   topic: two

@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 2019_11_12_155457) do
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "correct?", default: false
+    t.boolean "correct", default: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.boolean "winner?"
+    t.boolean "winner"
     t.integer "score"
     t.bigint "user_id", null: false
     t.bigint "topic_id", null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_155457) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin?", default: false
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "answers", "questions"

@@ -10,4 +10,8 @@ class User < ApplicationRecord
     def to_s
         self.first_name + " " + self.last_name
     end
+
+    def self.admins
+        self.where admin:true
+    end
 end

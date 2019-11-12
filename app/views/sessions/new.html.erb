@@ -1,7 +1,11 @@
 <h1>Login Form: </h1>
 
-<% if flash[:message] %>
-    <%= flash[:message] %>
+<% if flash[:notification] %>
+    <%= flash[:notification] %>
+
+<% end %>
+<% if flash[:error] %>
+    <%= flash[:error] %>
 
 <% end %>
 

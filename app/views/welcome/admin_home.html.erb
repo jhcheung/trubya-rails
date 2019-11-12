@@ -2,5 +2,10 @@
 
 <p>Hello, <%= @user.first_name %></p>
 
+<%= link_to "Select Enabled Topics", topics_edit_all_path %><br />
+
+<%= link_to "Manage Users", users_path %><br />
+
+<%= link_to "Randomly Add Questions", questions_random_path %><br />
 
 <%= button_to "Logout", logout_path, method: :delete %>

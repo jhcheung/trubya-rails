@@ -2,6 +2,7 @@
 
 <%= form_tag questions_random_path do %>
     <%= label_tag "Category" %>
-    <%= collection_select(nil, :category_id, Topic.only_enabled, :category_id, :name, prompt: true) %>
+    <%= collection_select(nil, :category_id, Topic.only_enabled, :category_id, :name, prompt: true) %><br />
+    <%= number_field_tag :number %>
     <%= submit_tag %>
 <% end %>
