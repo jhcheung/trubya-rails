@@ -1,0 +1,9 @@
+<h1>Currently enabled topics</h1>
+
+<ul>
+    <% @topics.each do |topic| %>
+        <li><%= topic.name %></li>
+    <% end %>
+</ul>
+
+<%= link_to "Edit Topics", topics_edit_all_path%>

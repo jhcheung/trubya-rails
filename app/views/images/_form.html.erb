@@ -1,0 +1,16 @@
+<% if flash[:messages] %>
+    <h2>ERROR</h2>
+    <ul>
+        <% flash[:messages].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for image do |f| %>
+    <%= f.label :img_url %><br />
+    <%= f.text_field :img_url %><br />
+    <%= f.label :answer %><br />
+    <%= f.text_field :answer %><br />
+    <%= f.submit %>
+<% end %>

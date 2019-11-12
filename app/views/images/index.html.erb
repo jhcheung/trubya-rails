@@ -1,0 +1,7 @@
+<h1>All images</h1>
+
+<ul>
+    <% @images.each do |image| %>
+        <li><%= link_to image.answer, image %></li>
+    <% end %>
+</ul>

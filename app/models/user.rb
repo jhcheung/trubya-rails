@@ -4,4 +4,10 @@ class User < ApplicationRecord
     
     has_many :images, through: :games
     has_many :questions, through: :topics
+    
+    has_secure_password
+
+    def to_s
+        self.first_name + " " + self.last_name
+    end
 end

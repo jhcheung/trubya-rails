@@ -1,12 +1,27 @@
 Rails.application.routes.draw do
+  get '/topics', to: 'topics#index'
+  get '/topics/edit_all', to: 'topics#edit_all'
+  post '/topics/edit_all', to: 'topics#update_all'
+  get '/questions/random', to: 'questions#random'
+  post '/questions/random', to: 'questions#random_create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy' 
+  get '/signup', to: 'users#new'
+  get '/home', to: 'welcome#home'
+  get '/admin/login', to: 'sessions#admin_new'
+  post '/admin/login', to: 'sessions#admin_create'
+  get '/admin/home', to: 'welcome#admin_home'
+
+
+
   resources :placings
   resources :leaderboards
   resources :images
-  resources :question_answers
   resources :answers
   resources :questions
   resources :games
-  resources :topics
-  resources :users
+  resources :users, except: [:new]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

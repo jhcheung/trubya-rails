@@ -1,0 +1,25 @@
+
+<h1>Delete User<%= @user.first_name %></h1>
+<%# @page_title = "Delete Page" %>
+
+<%#= link_to("<< Back to List", pages_path(:subject_id => @subject.id), :class => 'back-link') %>
+
+<!--<div class="pages delete">-->
+<!--  <h2>Delete Page</h2>-->
+
+  <%#= form_for(@page, :url => page_path(@page, :subject_id => @subject.id), :method => 'delete') do |f| %>
+  <%= form_for(@user, method: :destroy) do |f| %>
+
+    <p>Are you sure you want to permanently delete this user?</p>
+
+<!--    <p class="reference-name"><%#= f.@user.first_name %></p>-->
+
+  <h1><%= @user.first_name + " " + @user.last_name %></h1>
+
+
+  <div class="form-buttons">
+      <%= f.submit("Delete Page") %>
+    </div>
+
+  <% end %>
+<!--</div>-->

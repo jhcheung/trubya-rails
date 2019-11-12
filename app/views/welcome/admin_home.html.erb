@@ -1,0 +1,6 @@
+<h1>Welcome, Admin <%= @user.username %></h1>
+
+<p>Hello, <%= @user.first_name %></p>
+
+
+<%= button_to "Logout", logout_path, method: :delete %>
