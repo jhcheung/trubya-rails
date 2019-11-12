@@ -1,11 +1,21 @@
 
-<% if flash[:notice] %>
-  <h2><% flash[:notice] %></h2>
-  <% elsif flash[:messages] %>
-  <h2><% flash[:messages] %></h2>
+<% if flash[:error] %>
+  <h2><% flash[:error] %></h2>
+<% end %>
+<% if flash[:errors] %>
+    <h2>ERROR</h2>
+    <ul>
+        <% flash[:errors].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
 <% end %>
 
-<%= form_for @user do |f| %>
+<% if flash[:notification] %>
+  <h2><% flash[:notification] %></h2>
+<% end %>
+
+<%= form_for @user, url: url do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br />
 
@@ -16,10 +26,10 @@
   <%= f.text_field :username %><br />
 
   <%= f.label :password %>
-  <%= f.text_field :password %><br />
+  <%= f.password_field :password %><br />
 
   <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %><br />
 
   <%= f.submit %>
 <% end %>

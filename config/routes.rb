@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/admin/login', to: 'sessions#admin_new'
   post '/admin/login', to: 'sessions#admin_create'
   get '/admin/home', to: 'welcome#admin_home'
+  get '/admin/signup', to: 'users#admin_new'
+  post '/admin/signup', to: 'users#admin_create'
+
 
 
 

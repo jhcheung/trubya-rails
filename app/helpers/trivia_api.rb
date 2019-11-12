@@ -2,7 +2,7 @@ require 'rest-client'
 
 class TriviaApi
   def initialize
-    @url = "https://opentdb.com/api.php?amount=1"
+    @url = "https://opentdb.com/api.php?amount=1&category=20"
     @categories = "https://opentdb.com/api_category.php"
   end
 
@@ -28,7 +28,7 @@ class TriviaApi
 
   def change_category(category_id)
     append_url = "&category=#{category_id}"
-    @url += append_url
+    @url.gsub /(&category=)\d\d/, append_url
   end
 
 end 

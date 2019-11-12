@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
         if @image.save
             redirect_to @image
         else 
-            flash[:messages] = @image.errors.full_messagers
+            flash[:errors] = @image.errors.full_messagers
             redirect_to new_image_path
         end
     end

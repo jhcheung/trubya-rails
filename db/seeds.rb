@@ -16,5 +16,5 @@ categories.each do |category|
     Topic.create(name: category["name"], category_id: category["id"])
 end
 
-user = User.create(username: "jp7", password: "yolo", first_name: "Jeffrey", last_name: "Paulino", admin?: true)
-user2 = User.create(username: "jimmyc", password: "password", first_name: "Jimmy", last_name: "Cheung", admin?: true)
+user = User.create(username: "jp7", password: "yolo", first_name: "Jeffrey", last_name: "Paulino", admin: true)
+user2 = User.create(username: "jimmyc", password: "password", first_name: "Jimmy", last_name: "Cheung", admin: true)
