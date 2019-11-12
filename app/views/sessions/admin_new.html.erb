@@ -1,0 +1,14 @@
+<h1>Admin Login Form: </h1>
+
+<% if flash[:message] %>
+    <%= flash[:message] %>
+
+<% end %>
+
+<%= form_for :user do |f| %>
+    <%= f.label :username %><br/>
+    <%= f.text_field :username %><br/>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %><br/>
+    <%= f.submit "Login" %>
+<% end %>
