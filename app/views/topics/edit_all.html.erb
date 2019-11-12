@@ -1,0 +1,11 @@
+<h1>Change Enabled Topics</h1>
+
+<%= form_tag topics_edit_all_path do %>
+  <% @topics.each do |topic| %> 
+    <%= fields_for "topics[]", topic do |f| %>
+      <%= f.check_box :enabled %>
+      <%= f.label topic["name"] %><br />
+    <% end %>
+  <% end %>
+  <%= submit_tag %>
+<% end %>

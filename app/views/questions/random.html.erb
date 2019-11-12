@@ -1,0 +1,7 @@
+<h1>Generate a random question from OpenTrivia!</h1>
+
+<%= form_tag questions_random_path do %>
+    <%= label_tag "Category" %>
+    <%= collection_select(nil, :category_id, Topic.only_enabled, :category_id, :name, prompt: true) %>
+    <%= submit_tag %>
+<% end %>
