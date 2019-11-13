@@ -1,5 +1,6 @@
 <h1>Start a new game!</h1>
 
 <%= form_for @game do |f| %>
-    <%= f.collection_select%>
+    <%= f.collection_select :topic_id, Topic.only_enabled, :id, :name, prompt:true %>
+    <%= f.submit "Start Game"%>
 <% end %>
