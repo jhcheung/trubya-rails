@@ -1,5 +1,12 @@
-<h1>Login Form: </h1>
+<%= render 'layouts/header' %>
 
-<%= render 'form',url:nil %>
-
-<%= button_to "Sign Up", signup_path, method: :get %>
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="login col-6">
+      <h1>LogIn</h1>
+      <%= render 'layouts/login_form' %>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
