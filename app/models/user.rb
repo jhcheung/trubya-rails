@@ -14,4 +14,12 @@ class User < ApplicationRecord
     def self.admins
         self.where admin:true
     end
+
+    def won_games
+        self.games.select { |game| game.winner == true }
+    end
+
+    def won_images
+        self.won_games.map { |game| game.image }
+    end
 end

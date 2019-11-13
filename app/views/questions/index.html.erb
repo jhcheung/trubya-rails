@@ -2,6 +2,6 @@
 
 <ul>
     <% @questions.each do |question| %>
-        <li><%= link_to question.question, question %></li>
+        <li><%= link_to raw question.question, question %></li>
     <% end %>
 </ul>

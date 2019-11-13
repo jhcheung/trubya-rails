@@ -1,27 +1,5 @@
 <h1>Login Form: </h1>
 
-<% if flash[:notifications] %>
-    <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<% if flash[:errors] %>    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-
-<%= form_for :user do |f| %>
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %><br/>
-    <%= f.label :password %><br/>
-    <%= f.password_field :password %><br/>
-    <%= f.submit "Login" %>
-<% end %>
+<%= render 'form',url:nil %>
 
 <%= button_to "Sign Up", signup_path, method: :get %>

@@ -2,5 +2,21 @@
 
 <p>Hello, <%= @user.first_name %></p>
 
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<% if flash[:notifications] %>
+    <ul>
+        <% flash[:notifications].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 
 <%= button_to "Logout", logout_path, method: :delete %>
