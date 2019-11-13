@@ -1,11 +1,11 @@
-<h1><%= @question.question %></h1>
+<h1><%= raw @question.question %></h1>
 
 <ul>
     <% @question.answers.each do |answer| %>
         <% if answer.correct %>
-            <strong><li><%= answer.answer %></li></strong>
+            <strong><li><%=  raw answer.answer %></li></strong>
         <% else %>
-            <li><%= answer.answer %></li>
+            <li><%= raw answer.answer %></li>
 <% end %>
 
     <% end %>

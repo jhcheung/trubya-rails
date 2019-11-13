@@ -1,0 +1,45 @@
+<% if @game.winner == false %>
+    <h2> <%= @game.user.username %> lost this game!</h2>
+
+<% elsif @game.winner == true %>
+    <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
+<% else %>
+    <%= @game.user.username %> 
+    <h4><%= @game.topic.name%></h4>
+    <h4>Score: <%= @game.score %></h4>
+    <h4>Lives: <%= session[:lives] %></h4>
+<% end %>
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<% if flash[:notifications] %>
+    <ul>
+        <% flash[:notifications].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<% unless @game.winner%>
+    <%= image_tag @image.img_url %>
+    <br />
+
+
+    <%= raw @question.question %>
+    <br />
+
+    <%= render 'show_question' %>
+    <br />
+
+    <%= form_tag game_path(@game), method: :patch do %>
+        <%= label_tag "You can guess the image here!" %><br />
+        <%= text_field_tag :guess %>
+        <%= submit_tag "Guess!"%>
+    <% end %>
+<% end %>

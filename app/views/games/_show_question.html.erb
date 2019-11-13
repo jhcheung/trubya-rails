@@ -1,0 +1,9 @@
+<%= form_tag game_path(@game), method: :patch do %>
+    <% @question.answers.each do |answer| %>
+    <li>
+        <%= radio_button_tag("answer", answer.id) %>
+        <%= label("answer".concat(answer.id.to_s).to_sym, raw(answer.answer)) %>
+    </li>
+    <% end %>
+    <%= submit_tag "Final Answer" %>
+<% end %>

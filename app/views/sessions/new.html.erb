@@ -1,27 +1,12 @@
-<h1>Login Form: </h1>
+<%= render 'layouts/header' %>
 
-<% if flash[:notifications] %>
-    <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<% if flash[:errors] %>    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-
-<%= form_for :user do |f| %>
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %><br/>
-    <%= f.label :password %><br/>
-    <%= f.password_field :password %><br/>
-    <%= f.submit "Login" %>
-<% end %>
-
-<%= button_to "Sign Up", signup_path, method: :get %>
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="login col-6">
+      <h1>LogIn</h1>
+      <%= render 'layouts/login_form' %>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

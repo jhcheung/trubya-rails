@@ -9,4 +9,8 @@ class Topic < ApplicationRecord
     def self.only_enabled
         self.where(enabled: true).sort_by { |topic| topic.id }
     end
+
+    def random_question
+        self.questions.sample
+    end
 end
