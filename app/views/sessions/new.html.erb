@@ -1,13 +1,20 @@
 <h1>Login Form: </h1>
 
-<% if flash[:notification] %>
-    <%= flash[:notification] %>
-
+<% if flash[:notifications] %>
+    <ul>
+        <% flash[:notifications].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
 <% end %>
-<% if flash[:error] %>
-    <%= flash[:error] %>
 
+<% if flash[:errors] %>    <ul>
+        <% flash[:errors].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
 <% end %>
+
 
 <%= form_for :user do |f| %>
     <%= f.label :username %><br/>

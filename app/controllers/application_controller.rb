@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
     private 
 
     def login_check
-        @notifications = session[:notifications]
-        @errors = session[:errors]
+        @notifications = flash[:notifications]
+        @errors = flash[:errors]
+
 
         if session[:user_id]
             @logged_in_user = User.find session[:user_id]

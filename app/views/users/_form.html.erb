@@ -1,9 +1,5 @@
 
-<% if flash[:error] %>
-  <h2><% flash[:error] %></h2>
-<% end %>
 <% if flash[:errors] %>
-    <h2>ERROR</h2>
     <ul>
         <% flash[:errors].each do |message| %>
             <li><%= message %></li>
@@ -11,9 +7,14 @@
     </ul>
 <% end %>
 
-<% if flash[:notification] %>
-  <h2><% flash[:notification] %></h2>
+<% if flash[:notifications] %>
+    <ul>
+        <% flash[:notifications].each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
 <% end %>
+
 
 <%= form_for @user, url: url do |f| %>
   <%= f.label :first_name %>
