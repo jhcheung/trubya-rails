@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :topic
-  has_many :answers
+  has_many :answers, dependent: :destroy
   accepts_nested_attributes_for :answers, reject_if: proc { |attributes| attributes['answer'].blank? }
 
   def generate_with_trivia_api(api_question) 
@@ -12,6 +12,6 @@ class Question < ApplicationRecord
       wrong_answer = self.answers.build answer: answer, correct: false
       wrong_answer.save
     end
-    question
+    self
   end
 end

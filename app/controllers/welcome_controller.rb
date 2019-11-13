@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
             @user = User.find_by id: session[:user_id]
             render 'admin_home'
         else 
-            flash[:error] = "You are not authorized to go there!"
+            flash[:errors] = ["You are not authorized to go there!"]
             redirect_to login_path
         end
     end

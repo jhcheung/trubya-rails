@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @user = User.new
       render 'admin_new'
     else 
-      flash[:error] = "We already have admins! No admins necessary."
+      flash[:errors] = ["We already have admins! No admins necessary."]
       redirect_to login_path
     end
   end
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to admin_home_path
     else 
-      flash[:error] = "Failed to create an admin."
+      flash[:errors] = ["Failed to create an admin."]
       redirect_to admin_new_path
     end
   end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notification] = "SUCCESS"
+      flash[:notifications] = ["SUCCESS"]
       redirect_to home_path
     else
       flash[:errors] = @user.errors.full_messages
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notification] = "UPDATED"
+      flash[:notifications] = ["UPDATED"]
       redirect_to user_path(@user)
     else
       flash[:errors] = @user.errors.full_messages
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notification] = "User destroyed successfully."
+    flash[:notifications] = ["User destroyed successfully."]
     redirect_to users_path
   end
 
