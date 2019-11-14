@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/topics/edit_all', to: 'topics#update_all'
   get '/questions/random', to: 'questions#random'
   post '/questions/random', to: 'questions#random_create'
+  get '/forbidden', to: 'welcome#forbidden'
   
 
   resources :placings

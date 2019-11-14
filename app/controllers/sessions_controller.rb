@@ -1,11 +1,14 @@
 class SessionsController < ApplicationController
-
     def new
-
+        if @logged_in_user
+            redirect_to home_path
+        end
     end
 
     def admin_new
-        
+        if @logged_in_user.admin
+            redirect_to admin_home_path
+        end
     end
 
     def admin_create
