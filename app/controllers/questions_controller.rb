@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
     def random_create
         trivia_api = TriviaApi.new
         trivia_api.change_category params[:category_id]
+        byebug
         topic = Topic.find_by(category_id: params[:category_id])
         flash[:question_ids] = []
         params[:number].to_i.times do

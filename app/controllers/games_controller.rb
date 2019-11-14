@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+    before_action :set_game, only: [:play, :playing, :edit, :update, :show]
+    before_action :require_admin, only: [:index]
 
     def index
         @games = Game.all
@@ -10,7 +12,7 @@ class GamesController < ApplicationController
             render 'new'
         else 
             flash[:errors] = ["You have already played with all images!"]
-            redirect_to home_path
+            redirect_to root_path
         end
     end
 
@@ -18,15 +20,26 @@ class GamesController < ApplicationController
         @game = Game.new user: @logged_in_user, image: Image.unused_random_image(@logged_in_user), topic_id: params[:game][:topic_id], score: 0
         if @game.save
             session[:lives] = 10
-            redirect_to @game
+            redirect_to play_game_path @game
         else 
             flash[:errors] = ["You have already played with all images!"]
-            redirect_to home_path
+            redirect_to root_path
         end
     end
 
-    def update
-        @game = Game.find(params[:id])
+    def play
+        require_current_user_or_admin
+        @image = @game.image
+        if session[:question_id]
+            @question = Question.find(session[:question_id])   
+        else
+            @question = @game.topic.random_question
+            session[:question_id] = @question.id
+        end
+    end 
+
+    def playing
+        require_current_user_or_admin
         if params[:answer]
             @answer = Answer.find(params[:answer].to_i)
             if @answer.correct
@@ -60,21 +73,31 @@ class GamesController < ApplicationController
             end
         end
 
-        redirect_to @game
+        redirect_to play_game_path @game
+    end
+
+    def edit
+        
+    end
+
+    def update
+        
     end
 
     def show
-        @game = Game.find params[:id]  
-        @image = @game.image
-        if session[:question_id]
-            @question = Question.find(session[:question_id])   
-        else
-            @question = @game.topic.random_question
-            session[:question_id] = @question.id
+        
+    end
+
+    private
+
+    def set_game
+        @game = Game.find params[:id]
+    end
+
+    def require_current_user_or_admin
+        unless (@logged_in_user && @logged_in_user == @game.user) || (@logged_in_user && @logged_in_user.admin)
+            redirect_to forbidden_path  
         end
     end
 
-    def answer
-        
-    end
 end

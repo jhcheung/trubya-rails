@@ -1,7 +1,14 @@
 <h1>List of games</h1>
 
-<% @games.each do |game| %>
+<ul>
+    <% @games.each do |game| %>
 
-    <%= game.user.username %><br />
+        <li><%= link_to game.user.username, play_game_path(game) %><br />
+            <ul>
+                <li><%= game.winner ? "Win" : "Loss" %></li>
+                <li><%= game.score %></li>
+            </ul>
+        </li>
 
-<% end %>
+    <% end %>
+</ul>

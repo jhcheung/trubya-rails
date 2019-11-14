@@ -1,4 +1,4 @@
-<%= form_tag game_path(@game), method: :patch do %>
+<%= form_tag playing_game_path(@game), method: :patch do %>
     <% @question.answers.each do |answer| %>
     <li>
         <%= radio_button_tag("answer", answer.id) %>

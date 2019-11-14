@@ -6,6 +6,11 @@
 
 <%= link_to "Manage Users", users_path %><br />
 
-<%= link_to "Randomly Add Questions", questions_random_path %><br />
+<%= link_to "Randomly Add Questions from Open Trivia", questions_random_path %><br />
+
+<%= link_to "Create a New Question" new_question_path %>
+
+<%= link_to "Game Log", games_path %>
+
 
 <%= button_to "Logout", logout_path, method: :delete %>
