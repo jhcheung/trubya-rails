@@ -9,9 +9,6 @@
 <!--  </div>-->
 
 
-
-
-
     <% if @game.winner == false %>
       <h2> <%= @game.user.username %> lost this game!</h2>
 
@@ -26,21 +23,7 @@
 
     <% end %>
 
-    <% if flash[:errors] %>
-      <ul>
-        <% flash[:errors].each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-    <% if flash[:notifications] %>
-      <ul>
-        <% flash[:notifications].each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+    <%= render 'layouts/flash' %>
 
     <% if @game.winner.nil? %>
 
@@ -72,8 +55,9 @@
         <div class="play_-_guess offset-3 col-6 offset-3">
           <%= form_tag playing_game_path(@game), method: :patch do %>
   <!--          <%#= label_tag "You can guess the image here!" %><br/>-->
-            <%= text_field_tag :guess, nil, placeholder: "Want to take a chance?" %>
-            <%#= submit_tag "Guess!" %>
+            <%= text_field_tag :guess, nil, placeholder: "Want to take a chance?",autocomplete: "off" %>
+            <%= submit_tag "" %>
+            <i class="fas fa-question"></i>
           <% end %>
         </div>
       </div>
@@ -81,5 +65,3 @@
     <% end %>
   </div>
 </div>
-<!--</div>-->
-<!--</div>-->

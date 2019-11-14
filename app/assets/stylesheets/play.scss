@@ -141,6 +141,9 @@
 
 .play_-_guess {
   text-align: center;
+  //background-color: yellow;
+  height: auto;
+  position: relative;
 
   input[type=text] {
     //width: 350px;
@@ -158,23 +161,36 @@
     padding-left: 1rem;
   }
 
-  &::after {
-    font-family: FontAwesome;
-    content: "\f128";
+  input[type=submit]  {
+    //font-family: FontAwesome;
+    //content: "\f128";
     color: white;
     position: absolute;
     top: 52px;
-    right: 65px;
+    right: 64px;
     //width: 52px;
     //height: 51px;
-    font-size: 2rem;
-    padding-top: 0.3rem;
+    //padding-top: 0.3rem;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
 
     width: 55px;
     height: 55px;
     border-radius: 27.5px;
     background-color: #F44336;
+    display: block;
     //background-color: #eb1616;
+  }
+
+  i {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    top: 63px;
+    right: 79px;
+    opacity: 95%;
+    color: white;
+    cursor: pointer;
   }
 }
 
