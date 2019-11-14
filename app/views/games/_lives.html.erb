@@ -1,0 +1,13 @@
+
+<div class="play_-_lives col-2">
+  <% if session[:lives] % 2 == 0 %>
+    <% (session[:lives] / 2).times do %>
+      <i class="fas fa-heart"></i>
+    <% end %>
+  <% else %>
+    <% (session[:lives] - 1).times do %>
+      <h1><i class="fas fa-heart"></i></h1>
+    <% end %>
+    <h1><i class="fas fa-heart-broken"></i></h1>
+  <% end %>
+</div>
