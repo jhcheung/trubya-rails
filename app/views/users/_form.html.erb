@@ -1,36 +1,31 @@
 
-<% if flash[:errors] %>
-    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<div class="main_-_form">
 
-<% if flash[:notifications] %>
-    <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+  <%= render 'layouts/flash' %>
 
+  <%= form_for :user, url: url do |f| %>
+    <center>
+      <%#= f.label :first_name %>
+      <!--  <%#= f.text_field :first_name %><br />-->
+      <%= f.text_field :first_name, placeholder: "First Name" %><br/>
 
-<%= form_for @user, url: url do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %><br />
+      <%#= f.label :last_name %>
+      <!--  <%#= f.text_field :last_name %><br />-->
+      <%= f.text_field :last_name, placeholder: "Last Name" %><br/>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %><br />
+      <%#= f.label :username %>
+      <!--  <%#= f.text_field :username %><br />-->
+      <%= f.text_field :username, placeholder: "Username" %><br/>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %><br />
+      <%#= f.label :password %>
+      <!--  <%#= f.password_field :password %><br />-->
+      <%= f.password_field :password, placeholder: "Password" %><br/>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br />
+      <%#= f.label :password_confirmation %>
+      <!--  <%#= f.password_field :password_confirmation %><br />-->
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br/>
+      <%= f.submit %>
+    </center>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br />
-
-  <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

@@ -3,9 +3,13 @@
 <div class="container">
   <div class="row">
     <div class="col-3"></div>
-    <div class="login col-6">
+    <div class="main col-6">
       <h1>LogIn</h1>
-      <%= render 'layouts/login_form' %>
+      <%= render 'login_form', url:nil %>
+
+      <h5>
+        <%= link_to("Not a user? Sign up!", signup_path, method: :get) %>
+      </h5>
     </div>
     <div class="col-3"></div>
   </div>
