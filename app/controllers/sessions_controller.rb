@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
-        flash[:notification] = "You've been logged out!"
+        flash[:notifications] = ["You've been logged out!"]
         redirect_to login_path
     end
 

@@ -1,22 +1,41 @@
-<% if flash[:notifications] %>
+
+<div class="login_-_form">
+  <% if flash[:notifications] %>
     <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
+      <% flash[:notifications].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     </ul>
+  <% end %>
+
+  <div class="login_-_form_--_warning">
+    <% if flash[:errors] %>
+      <center>
+        <ul>
+          <% flash[:errors].each do |message| %>
+            <li>
+              <i class="fas fa-exclamation-circle"></i>
+              <%= message %>
+            </li>
+          <% end %>
+        </ul>
+      </center>
+    <% end %>
+  </div>
+
+  <%= form_for :user, url: url do |f| %>
+    <center>
+<!--    <%#= f.label :username %><br/>-->
+<!--    <%#= f.text_field :username %><br/>-->
+<!--    <%#= f.label :password %><br/>-->
+<!--    <%#= f.password_field :password %><br/>-->
+      <%= f.text_field :username, placeholder: "Username" %><br/>
+      <%= f.password_field :password, placeholder: "Password" %><br/>
+      <%= f.submit "Sign-In" %>
+    </center>
 <% end %>
 
-<% if flash[:errors] %>    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_for :user, url: url do |f| %>
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %><br/>
-    <%= f.label :password %><br/>
-    <%= f.password_field :password %><br/>
-    <%= f.submit "Login" %>
-<% end %>
+  <h4>
+    <%= link_to("Not a user? Sign up!", signup_path, method: :get) %>
+  </h4>
+</div>

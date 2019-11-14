@@ -1,0 +1,30 @@
+
+<div class="main_-_form_--_notification">
+  <% if flash[:notifications] %>
+    <center>
+      <ul>
+        <% flash[:notifications].each do |message| %>
+          <li>
+            <i class="fas fa-exclamation-circle"></i>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </center>
+  <% end %>
+</div>
+
+<div class="main_-_form_--_warning">
+  <% if flash[:errors] %>
+    <center>
+      <ul>
+        <% flash[:errors].each do |message| %>
+          <li>
+            <i class="fas fa-exclamation-circle"></i>
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </center>
+  <% end %>
+</div>

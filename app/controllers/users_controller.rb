@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notifications] = ["SUCCESS"]
+      session[:user_id] = @user.id
       redirect_to home_path
     else
       flash[:errors] = @user.errors.full_messages
