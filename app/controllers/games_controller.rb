@@ -67,7 +67,7 @@ class GamesController < ApplicationController
         @game = Game.find params[:id]  
         @image = @game.image
         if session[:question_id]
-            @question = Question.find(flash[:question_id]    
+            @question = Question.find(flash[:question_id])
         else
             @question = @game.topic.random_question
             session[:question_id] = @question.id
