@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+    before_action :require_admin
     
     def index
         @questions = Question.all
@@ -32,10 +33,28 @@ class QuestionsController < ApplicationController
         redirect_to questions_random_path
     end
 
+    def new
+        @question = Question.new
+        4.times do
+            @question.answers.build
+        end 
+    end
+
+    def create
+        @question
+    end
+
     def destroy
         @question = Question.find params[:id]
         @question.destroy
         
         redirect_to questions_path
     end
+
+    private
+
+    def question_params
+        params.require(:question).permit(:question, :topic_id, answer_attributes: [ :answer, :correct ])
+    end
+
 end
