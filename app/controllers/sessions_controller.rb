@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     def new
         if @logged_in_user
-            redirect_to home_path
+            redirect_to root_path
         end
     end
 
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            redirect_to home_path
+            redirect_to root_path
         else
             flash[:errors] = ["You failed to login!!! Loser."]
             redirect_to login_path

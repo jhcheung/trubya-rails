@@ -28,7 +28,7 @@ class TriviaApi
 
   def change_category(category_id)
     append_url = "&category=#{category_id}"
-    @url.gsub /(&category=)\d\d/, append_url
+    @url = @url.gsub /(&category=)\d\d/, append_url
   end
 
 end 

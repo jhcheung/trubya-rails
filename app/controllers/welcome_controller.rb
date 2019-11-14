@@ -2,7 +2,12 @@ class WelcomeController < ApplicationController
     before_action :require_admin, only: [:admin_home]
 
     def home
-        @user = User.find_by id: session[:user_id]
+        if @logged_in_user
+            @user = User.find_by id: session[:user_id]
+            render 'home'
+        else
+            redirect_to login_path
+        end
     end
 
     def admin_home

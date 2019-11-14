@@ -1,5 +1,7 @@
 <h1>Add a new question!</h1>
 
+<%= render 'layouts/flash'%>
+
 <%= form_for @question do |f| %>
     <%= f.label :question %><br />
     <%= f.text_field :question %><br />

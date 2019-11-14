@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
         unless @logged_in_user && @logged_in_user.admin 
            redirect_to forbidden_path  
         end
-    end 
+    end
 
 end
