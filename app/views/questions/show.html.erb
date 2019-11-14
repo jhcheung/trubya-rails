@@ -1,4 +1,5 @@
 <h1><%= raw @question.question %></h1>
+<h2><%= @question.topic.name %> </h2>
 
 <ul>
     <% @question.answers.each do |answer| %>
@@ -6,8 +7,8 @@
             <strong><li><%=  raw answer.answer %></li></strong>
         <% else %>
             <li><%= raw answer.answer %></li>
-<% end %>
-
+        <% end %>
+        
     <% end %>
 </ul>
 

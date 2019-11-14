@@ -2,6 +2,17 @@ class Question < ApplicationRecord
   belongs_to :topic
   has_many :answers, dependent: :destroy
   accepts_nested_attributes_for :answers, reject_if: proc { |attributes| attributes['answer'].blank? }
+  validate :has_only_one_correct_answer
+
+  def correct_answers
+    answers.select { |answer| answer.correct == true }
+  end
+
+  def has_only_one_correct_answer
+    if correct_answers.count != 1
+      errors.add(:answers, "can only have one correct answer")
+    end
+  end
 
   def generate_with_trivia_api(api_question) 
     self.question = api_question["question"] 

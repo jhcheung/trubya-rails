@@ -4,7 +4,7 @@
 <% elsif @game.winner == true %>
     <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
 <% else %>
-    <%= @game.user.username %> 
+    <h3><%= @game.user.username %></h3>
     <h4><%= @game.topic.name%></h4>
     <h4>Score: <%= @game.score %></h4>
     <h4>Lives: <%= session[:lives] %></h4>
@@ -26,7 +26,7 @@
     </ul>
 <% end %>
 
-<% unless @game.winner%>
+<% if @game.winner.nil? %>
     <%= image_tag @image.img_url %>
     <br />
 
@@ -37,7 +37,7 @@
     <%= render 'show_question' %>
     <br />
 
-    <%= form_tag game_path(@game), method: :patch do %>
+    <%= form_tag playing_game_path(@game), method: :patch do %>
         <%= label_tag "You can guess the image here!" %><br />
         <%= text_field_tag :guess %>
         <%= submit_tag "Guess!"%>
