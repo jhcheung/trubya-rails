@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+    before_action :require_admin
 
     def index
         @topics = Topic.only_enabled
