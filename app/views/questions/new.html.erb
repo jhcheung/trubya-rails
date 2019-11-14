@@ -2,15 +2,6 @@
 
 <%= render 'layouts/flash'%>
 
-<%= form_for @question do |f| %>
-    <%= f.label :question %><br />
-    <%= f.text_field :question %><br />
-    <%= f.label :topic_id %><br />
-    <%= f.collection_select :topic_id, Topic.only_enabled, :id, :name %><br />
-    <%= f.fields_for :answers do |answer_field| %>
-        <%= answer_field.label :answer %> <br />
-        <%= answer_field.text_field :answer %><br />
-        <%= answer_field.label :correct %> <br />
-        <%= answer_field.check_box :correct %><br />
-    <% end %>
-<% end %>
+<%= render 'form'%>
+
+<%= render 'welcome/back_admin_menu' %>

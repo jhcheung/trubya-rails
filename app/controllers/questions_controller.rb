@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+    before_action :set_question, only: [:show, :destroy, :edit, :update]
     before_action :require_admin
     
     def index
@@ -6,7 +7,7 @@ class QuestionsController < ApplicationController
     end
 
     def show
-        @question = Question.find params[:id]
+
     end
 
     def random
@@ -42,17 +43,28 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        @question
+        @question = Question.create questions_params
     end
 
     def destroy
-        @question = Question.find params[:id]
         @question.destroy
         
         redirect_to questions_path
     end
 
+    def edit
+        
+    end
+
+    def update
+        @question.update question_params
+    end
+
     private
+
+    def set_question
+        @question = Question.find params[:id]
+    end
 
     def question_params
         params.require(:question).permit(:question, :topic_id, answer_attributes: [ :answer, :correct ])

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :destroy]
+  before_action :require_admin, only: [:admin_edit_all, :admin_update_all]
 
   def index
     @users = User.all
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
       @user = User.new
       render 'admin_new'
     else 
-      flash[:errors] = ["We already have admins! No admins necessary."]
+      flash[:errors] = ["We already have admins! No new admins necessary."]
       redirect_to login_path
     end
   end
@@ -29,8 +30,11 @@ class UsersController < ApplicationController
   end
 
   def new
+    if @logged_in_user
+      flash[:errors] = ["You are already logged in! You do not need to sign up"]
+      redirect_to root_path
+    end
     @user = User.new
-    render :new
   end
 
   def create
@@ -47,11 +51,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    render :show
+
   end
 
   def edit
-    render :edit
+
   end
 
   def update
@@ -64,8 +68,18 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
-    render :delete
+  def admin_edit_all
+    @users = User.order(admin: :desc)
+  end
+
+  def admin_update_all
+    @users = User.order(admin: :desc)
+    @users.each do |user|
+      user.admin = params[:users]["#{user.id}"][:admin] 
+      user.save
+    end
+
+    redirect_to admin_edit_all_users_path
   end
 
   def destroy
@@ -84,6 +98,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name)
   end
 
-  
     
 end

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
     def new
         if @logged_in_user
+            flash[:errors] = ["You are already logged in! You do not need to sign up"]
             redirect_to root_path
         end
     end
