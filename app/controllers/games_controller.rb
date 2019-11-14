@@ -76,6 +76,7 @@ class GamesController < ApplicationController
         redirect_to play_game_path @game
     end
 
+
     def edit
         
     end
