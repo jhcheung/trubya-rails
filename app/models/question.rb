@@ -25,4 +25,8 @@ class Question < ApplicationRecord
     end
     self
   end
+
+  def randomized_answers
+    answers.shuffle
+  end
 end

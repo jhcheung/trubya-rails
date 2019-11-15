@@ -24,6 +24,9 @@
       <%#= f.label :password_confirmation %>
       <!--  <%#= f.password_field :password_confirmation %><br />-->
       <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br/>
+
+      <%= f.text_field :avatar_url, value: "https://i.imgur.com/DijIs48.jpg" %>
+      
       <%= f.submit %>
     </center>
 

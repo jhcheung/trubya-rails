@@ -162,7 +162,7 @@
   }
 
   input[type=submit]  {
-    //font-family: FontAwesome;
+    font-family: FontAwesome;
     //content: "\f128";
     color: white;
     position: absolute;
@@ -173,17 +173,17 @@
     //padding-top: 0.3rem;
     border: none;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+    font-size: 5rem;
 
     width: 55px;
     height: 55px;
     border-radius: 27.5px;
     background-color: #F44336;
-    display: block;
+    //display: inline;
     //background-color: #eb1616;
   }
 
   i {
-    display: block;
     font-size: 2rem;
     position: absolute;
     top: 63px;
@@ -191,6 +191,7 @@
     opacity: 95%;
     color: white;
     cursor: pointer;
+    pointer-events:none;
   }
 }
 
