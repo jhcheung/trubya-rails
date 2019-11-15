@@ -1,5 +1,14 @@
 
-<% @users.each do |user| %>
+<%= render 'layouts/header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="main offset-3 col-6 offset-3">
+
+      <h1 style="text-align: center">List of Users</h1>
+
+
+      <% @users.each do |user| %>
   <h3>
     <%= user.to_s %>
     <%= link_to "Show", user %>
@@ -10,3 +19,7 @@
 <% end %>
 
 <%= render 'welcome/back_admin_menu' %>
+
+    </div>
+    </div>
+    </div>

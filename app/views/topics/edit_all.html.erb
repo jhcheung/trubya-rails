@@ -1,13 +1,26 @@
-<h1>Change Enabled Topics</h1>
 
-<%= form_tag topics_edit_all_path do %>
-  <% @topics.each do |topic| %> 
-    <%= fields_for "topics[]", topic do |f| %>
-      <%= f.check_box :enabled %>
-      <%= f.label topic["name"] %><br />
-    <% end %>
-  <% end %>
-  <%= submit_tag %>
-<% end %>
+<%= render 'layouts/header' %>
 
-<%= render 'welcome/back_admin_menu' %>
+<div class="container">
+  <div class="row">
+    <div class="main offset-3 col-6 offset-3">
+
+      <h1>Change Enabled Topics</h1>
+
+      <%= form_tag topics_edit_all_path do %>
+        <% @topics.each do |topic| %>
+          <%= fields_for "topics[]", topic do |f| %>
+            <h4>
+            <%= f.check_box :enabled %>
+            <%= f.label topic["name"] %>
+            </h4>
+          <% end %>
+        <% end %>
+        <%= submit_tag %>
+      <% end %>
+
+      <%= render 'welcome/back_admin_menu' %>
+
+    </div>
+  </div>
+</div>

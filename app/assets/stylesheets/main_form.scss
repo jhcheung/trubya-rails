@@ -44,6 +44,7 @@
 .main {
   //margin-top: 150px;
   margin-top: 7% !important;
+  margin-bottom: 5%;
   background-color: #3d5afe;
   position: relative;
   border-radius: 12px;
@@ -162,24 +163,23 @@
 
 .main_-_buttons {
   margin-bottom: 1rem;
-
-  //input[type=submit] {
-  //  width: 350px;
-  //  height: 63px;
-  //  border-radius: 10px;
-  //  //margin: 10px 0;
-  //  border: 0;
-  //  font-size: 36px;
-  //
-  //  background-color: #ff9100;
-  //  box-shadow: 0 5px 0 #ff6600;
-  //  margin: 20px auto;
-  //  font-size: 36px;
-  //  font-weight: 500;
-  //  text-align: center;
-  //  color: #eeeeee;
-  //}
 }
+
+//input[type=checkbox] {
+//  width: 350px;
+//  height: 63px;
+//  border-radius: 10px;
+//  border: 0;
+//  font-size: 3rem;
+//
+//  background-color: #ff9100;
+//  box-shadow: 0 5px 0 #ff6600;
+//  margin: 20px auto;
+//  font-size: 36px;
+//  font-weight: 500;
+//  text-align: center;
+//  color: #eeeeee;
+//}
 
 input[type=submit] {
   width: 350px;

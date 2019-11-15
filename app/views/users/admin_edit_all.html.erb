@@ -1,13 +1,25 @@
-<h1>Manage Admins</h1>
+<%= render 'layouts/header' %>
 
-<%= form_tag admin_update_all_users_path do %>
-  <% @users.each do |user| %> 
-    <%= fields_for "users[]", user do |f| %>
-          <%= f.check_box :admin %>
-            <%= f.label user["username"] %><br />
-    <% end %>
-  <% end %>
-  <%= submit_tag %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="main offset-3 col-6 offset-3">
 
-<%= render 'welcome/back_admin_menu' %>
+      <h1>Manage Admins</h1>
+
+      <%= form_tag admin_update_all_users_path do %>
+        <% @users.each do |user| %>
+          <%= fields_for "users[]", user do |f| %>
+            <h4>
+            <%= f.check_box :admin %>
+            <%= f.label user["username"] %>
+            </h4>
+          <% end %>
+        <% end %>
+        <%= submit_tag %>
+      <% end %>
+
+      <%= render 'welcome/back_admin_menu' %>
+
+    </div>
+  </div>
+</div>
