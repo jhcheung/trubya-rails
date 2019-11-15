@@ -76,7 +76,7 @@ class GamesController < ApplicationController
                 session[:lives] -= 1
                 session.delete :question_id
                 if session[:lives] == 0
-                    flash[:notifications] << "That was your last life! You lose."
+                    flash[:notifications] = ["That was your last life! You lose."]
                     @game.winner = false
                     @game.save
                 end
@@ -91,7 +91,7 @@ class GamesController < ApplicationController
                 flash[:notifications] = ["Incorrect. You've lost a life. Please try again."]
                 session[:lives] -= 1
                 if session[:lives] == 0
-                    flash[:notifications] << "That was your last life! You lose."
+                    flash[:notifications] == ["That was your last life! You lose."]
                     @game.winner = false
                     @game.save
                 end

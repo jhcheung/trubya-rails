@@ -4,6 +4,7 @@ class TriviaApi
   def initialize
     @url = "https://opentdb.com/api.php?amount=1&category=20"
     @categories = "https://opentdb.com/api_category.php"
+    @@token ||= get_token
     @url = @url + "&token=" + get_token
   end
 
