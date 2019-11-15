@@ -85,12 +85,11 @@
       // max-width: 100%;
   .img_container0 {
     img {
-      max-width: auto;
+      max-width: 100%;
       height: auto;  
       border-radius: 10px;
     }
     max-height: 10%;
-    max-width: 10%;
     overflow: hidden;
   }
   .img_container100 {
@@ -101,21 +100,17 @@
     }
 
     max-height: 20%;
-    max-width: 20%;
     overflow: hidden;
   }
 
   .img_container200 {
     img {
       max-width: 100%;
-      height: auto;
-      max-width: 100%;
       height: auto;  
       border-radius: 10px;
     }
 
     max-height: 30%;
-    max-width: 30%;
     overflow: hidden;
   }
 
@@ -127,7 +122,6 @@
     }
 
     max-height: 40%;
-    max-width: 40%;
     overflow: hidden;
   }
 
@@ -139,43 +133,39 @@
     }
 
     max-height: 50%;
-    max-width: 50%;
     overflow: hidden;
   }
 
   .img_container500 {
     img {
-      max-width: auto;
+      max-width: 100%;
       height: auto;
       border-radius: 10px;
     }
 
     max-height: 60%;
-    max-width: 60%;
     overflow: hidden;
   }
 
   .img_container600 {
     img {
-      max-width: auto;
+      max-width: 100%;
       height: auto;
       border-radius: 10px;
     }
 
     max-height: 70%;
-    max-width: 70%;
     overflow: hidden;
   }
 
   .img_container700 {
     img {
-      max-width: auto;
+      max-width: 100%;
       height: auto;
       border-radius: 10px;
     }
 
     max-height: 80%;
-    max-width: 80%;
     overflow: hidden;
   }
 
@@ -187,7 +177,6 @@
     }
 
     max-height: 90%;
-    max-width: 90%;
     overflow: hidden;
   }
 
@@ -198,7 +187,6 @@
       border-radius: 10px;
     }
     max-height: 100%;
-    max-width: 100%;
     overflow: hidden;
   }
 

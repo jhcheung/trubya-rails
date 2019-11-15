@@ -37,7 +37,7 @@
         <%= render 'lives' %>
       <div class="play_-_image col-8">
         <div class="img_container<%=@game.score if @game.score < 1000 %>">
-          <%= image_tag @image.img_url, class: "img0" %>
+          <%= image_tag @image.img_url %>
         </div>
       </div>
         <%= render 'score' %>
@@ -63,7 +63,9 @@
           <% end %>
         </div>
       </div>
-
     <% end %>
+    <center>
+    <%= render 'welcome/back_user_menu'%>
+    </center>
   </div>
 </div>

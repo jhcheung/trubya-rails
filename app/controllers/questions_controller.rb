@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
         end
     end
 
-    def random_create
+    def random_create #spin off into method for seed?
         trivia_api = TriviaApi.new
         trivia_api.change_category params[:category_id]
         topic = Topic.find_by(category_id: params[:category_id])
@@ -43,7 +43,6 @@ class QuestionsController < ApplicationController
 
     def create
         @question = Question.new question_params
-
         
         if @question.save
             redirect_to @question
@@ -65,7 +64,14 @@ class QuestionsController < ApplicationController
     end
 
     def update
-        @question.update question_params
+        
+        if @question.update question_params
+            redirect_to @question
+        else
+            flash[:errors] = @question.errors.full_messages
+            redirect_to edit_question_path(@question)
+        end
+
     end
 
     private
