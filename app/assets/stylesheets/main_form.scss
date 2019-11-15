@@ -36,7 +36,6 @@
 *********/
 
 
-
 //body {
 //  background-color: #e3f2fd;
 //  font-family: Ubuntu;
@@ -44,7 +43,7 @@
 
 .main {
   //margin-top: 150px;
-  margin-top: 10% !important;
+  margin-top: 7% !important;
   background-color: #3d5afe;
   position: relative;
   border-radius: 12px;
@@ -54,9 +53,13 @@
   color: white;
   text-align: center;
 
-  h1 {margin: 0.8rem 0;}
+  h1 {
+    margin: 0.8rem 0;
+  }
 
-  h5 {margin-bottom: 2rem;}
+  h5 {
+    margin-bottom: 2rem;
+  }
 
   a {
     color: inherit;
@@ -134,7 +137,7 @@
     background-color: #E44C26;
     border-radius: 10px;
     color: white;
-    list-style-type:none;
+    list-style-type: none;
   }
 
   li {
@@ -148,10 +151,52 @@
 }
 
 .main_-_form_--_notification {
-  ul {background-color: #43A047;}
-  li {padding-left: 33px;}
+  ul {
+    background-color: #43A047;
+  }
+
+  li {
+    padding-left: 33px;
+  }
 }
 
+.main_-_buttons {
+  margin-bottom: 1rem;
+
+  //input[type=submit] {
+  //  width: 350px;
+  //  height: 63px;
+  //  border-radius: 10px;
+  //  //margin: 10px 0;
+  //  border: 0;
+  //  font-size: 36px;
+  //
+  //  background-color: #ff9100;
+  //  box-shadow: 0 5px 0 #ff6600;
+  //  margin: 20px auto;
+  //  font-size: 36px;
+  //  font-weight: 500;
+  //  text-align: center;
+  //  color: #eeeeee;
+  //}
+}
+
+input[type=submit] {
+  width: 350px;
+  height: 63px;
+  border-radius: 10px;
+  //margin: 10px 0;
+  border: 0;
+  font-size: 36px;
+
+  background-color: #ff9100;
+  box-shadow: 0 5px 0 #ff6600;
+  margin: 20px auto;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  color: #eeeeee;
+}
 
 // Animation -------------------------------------------------------------------
 

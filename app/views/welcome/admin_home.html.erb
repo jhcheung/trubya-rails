@@ -3,21 +3,21 @@
 <p>Hello, <%= @user.first_name %></p>
 
 <ul>
-    <li><%= link_to "Select Enabled Topics", topics_edit_all_path %></li>
+    <li><%= button_to "Select Enabled Topics", topics_edit_all_path, method: :get %></li>
 
-    <li><%= link_to "Manage Users", users_path %></li>
+    <li><%= button_to "Manage Users", users_path, method: :get %></li>
 
-    <li> <%= link_to "Manage Admins", admin_edit_all_users_path %> </li>
+    <li> <%= button_to "Manage Admins", admin_edit_all_users_path, method: :get %> </li>
 
-    <li><%= link_to "Randomly Add Questions from Open Trivia", questions_random_path %></li>
+    <li><%= button_to "Randomly Add Questions from Open Trivia", questions_random_path, method: :get %></li>
 
-    <li><%= link_to "Create a New Question", new_question_path %></li>
+    <li><%= button_to "Create a New Question", new_question_path, method: :get %></li>
 
-    <li><%= link_to "Game Log", games_path %></li>
+    <li><%= button_to "Game Log", games_path, method: :get %></li>
 
-    <li><%= link_to "Add New Image", new_image_path %></li>
+    <li><%= button_to "Add New Image", new_image_path, method: :get %></li>
 
-    <li><%= link_to "Image Answer Key", images_path %></li>
+    <li><%= button_to "Image Answer Key", images_path, method: :get %></li>
 
 </ul>
 
