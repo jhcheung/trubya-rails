@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-    has_many :games
+    has_many :games, dependent: :destroy
     has_many :users, through: :games
 
     # def self.random_image

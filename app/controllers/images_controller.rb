@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-    before_action :set_image, only: [:show]
+    before_action :set_image, only: [:show, :edit, :update, :destroy]
+    before_action :require_admin
 
     def index
         @images = Image.all    
@@ -22,6 +23,22 @@ class ImagesController < ApplicationController
     def show
         
     end
+
+    def edit
+        
+    end
+
+    def update
+        @image.update image_params
+        redirect_to @image
+    end
+
+    def destroy
+        @image.destroy
+        
+        redirect_to images_path
+    end
+
 
     private
 

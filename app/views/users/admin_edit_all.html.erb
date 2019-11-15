@@ -1,0 +1,13 @@
+<h1>Manage Admins</h1>
+
+<%= form_tag admin_update_all_users_path do %>
+  <% @users.each do |user| %> 
+    <%= fields_for "users[]", user do |f| %>
+          <%= f.check_box :admin %>
+            <%= f.label user["username"] %><br />
+    <% end %>
+  <% end %>
+  <%= submit_tag %>
+<% end %>
+
+<%= render 'welcome/back_admin_menu' %>

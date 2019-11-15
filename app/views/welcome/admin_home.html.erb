@@ -2,15 +2,24 @@
 
 <p>Hello, <%= @user.first_name %></p>
 
-<%= link_to "Select Enabled Topics", topics_edit_all_path %><br />
+<ul>
+    <li><%= link_to "Select Enabled Topics", topics_edit_all_path %></li>
 
-<%= link_to "Manage Users", users_path %><br />
+    <li><%= link_to "Manage Users", users_path %></li>
 
-<%= link_to "Randomly Add Questions from Open Trivia", questions_random_path %><br />
+    <li> <%= link_to "Manage Admins", admin_edit_all_users_path %> </li>
 
-<%= link_to "Create a New Question" new_question_path %>
+    <li><%= link_to "Randomly Add Questions from Open Trivia", questions_random_path %></li>
 
-<%= link_to "Game Log", games_path %>
+    <li><%= link_to "Create a New Question", new_question_path %></li>
 
+    <li><%= link_to "Game Log", games_path %></li>
 
-<%= button_to "Logout", logout_path, method: :delete %>
+    <li><%= link_to "Add New Image", new_image_path %></li>
+
+    <li><%= link_to "Image Answer Key", images_path %></li>
+
+</ul>
+
+<%= button_to "Logout", logout_path, method: :delete, data:
+{ confirm: "Are you sure you want to logout?" } %>

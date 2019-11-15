@@ -1,0 +1,15 @@
+<h1>Edit the results of a game 😈</h1>
+
+<%= form_for @game do |f| %>
+    <%= f.label :score %><br />
+    <%= f.number_field :score %><br />
+    <%= f.label :winner %><br />
+    <%= f.label :winner_true, 'Won' %><br />
+    <%= f.radio_button :winner, 'true' %><br />
+    <%= f.label :winner_false, 'Lost' %><br />
+    <%= f.radio_button :winner, 'false' %><br />
+    <%= f.submit %>
+<% end %>
+
+<%= button_to "Delete", @game, method: :delete, data:
+{ confirm: "Are you sure you want to delete this game?" } %>

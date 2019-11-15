@@ -1,45 +1,67 @@
-<% if @game.winner == false %>
-    <h2> <%= @game.user.username %> lost this game!</h2>
 
-<% elsif @game.winner == true %>
-    <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
-<% else %>
-    <h3><%= @game.user.username %></h3>
-    <h4><%= @game.topic.name%></h4>
-    <h4>Score: <%= @game.score %></h4>
-    <h4>Lives: <%= session[:lives] %></h4>
-<% end %>
+<%= render 'layouts/header' %>
 
-<% if flash[:errors] %>
-    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<% if flash[:notifications] %>
-    <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<% if @game.winner.nil? %>
-    <%= image_tag @image.img_url %>
-    <br />
+<div class="container">
+  <div class="play">
+<!--  <div class="row">-->
+    <%#= render 'lives' %>
+    <%#= render 'score' %>
+<!--  </div>-->
 
 
-    <%= raw @question.question %>
-    <br />
+    <% if @game.winner == false %>
+      <h2> <%= @game.user.username %> lost this game!</h2>
 
-    <%= render 'show_question' %>
-    <br />
+    <% elsif @game.winner == true %>
+      <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
+    <% else %>
 
-    <%= form_tag playing_game_path(@game), method: :patch do %>
-        <%= label_tag "You can guess the image here!" %><br />
-        <%= text_field_tag :guess %>
-        <%= submit_tag "Guess!"%>
+<!--      <h3><%#= @game.user.username %></h3>-->
+<!--      <h4><%#= @game.topic.name %></h4>-->
+
+
+
     <% end %>
-<% end %>
+
+    <%= render 'layouts/flash' %>
+
+    <% if @game.winner.nil? %>
+
+<!--    <div class="row">-->
+<!--      <div class="play_-_image offset-2 col-8 offset-2">-->
+        <%#= image_tag @image.img_url %>
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class="row">
+        <%= render 'lives' %>
+      <div class="play_-_image col-8">
+        <%= image_tag @image.img_url %>
+      </div>
+        <%= render 'score' %>
+    </div>
+
+
+
+      <div class="play_-_question">
+        <h3><%= raw @question.question %></h3>
+      </div>
+
+      <div class="row">
+        <%= render 'show_question' %>
+      </div>
+
+      <div class="row">
+        <div class="play_-_guess offset-3 col-6 offset-3">
+          <%= form_tag playing_game_path(@game), method: :patch do %>
+  <!--          <%#= label_tag "You can guess the image here!" %><br/>-->
+            <%= text_field_tag :guess, nil, placeholder: "Want to take a chance?",autocomplete: "off" %>
+            <%= submit_tag "" %>
+            <i class="fas fa-question"></i>
+          <% end %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>

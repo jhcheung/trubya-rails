@@ -1,9 +1,38 @@
-<%= form_tag playing_game_path(@game), method: :patch do %>
-    <% @question.answers.each do |answer| %>
-    <li>
-        <%= radio_button_tag("answer", answer.id) %>
-        <%= label("answer".concat(answer.id.to_s).to_sym, raw(answer.answer)) %>
-    </li>
-    <% end %>
-    <%= submit_tag "Final Answer" %>
-<% end %>
+
+<div class="play_-_selections offset-1 col-10 offset-1">
+  <div class="row">
+    <div class="play_-_selections_--_select col-5 offset-1 float-left">
+      <h2><%= @question.answers.first.answer %></h2>
+      <h3>A</h3>
+    </div>
+
+    <div class="play_-_selections_--_select col-5 offset-1">
+      <h2><%= @question.answers.second.answer %></h2>
+      <h3>B</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="play_-_selections_--_select col-5 offset-1">
+      <h2><%= @question.answers.third.answer %></h2>
+      <h3>C</h3>
+    </div>
+
+    <div class="play_-_selections_--_select col-5 offset-1">
+      <h2><%= @question.answers.fourth.answer %></h2>
+      <h3>D</h3>
+    </div>
+  </div>
+</div>
+
+
+
+<%#= form_tag playing_game_path(@game), method: :patch do %>
+<%# @question.answers.each do |answer| %>
+<!--    <li>-->
+<%#= radio_button_tag("answer", answer.id) %>
+<%#= label("answer".concat(answer.id.to_s).to_sym, raw(answer.answer)) %>
+<!--    </li>-->
+<%# end %>
+<%#= submit_tag "Final Answer" %>
+<%# end %>

@@ -1,11 +1,4 @@
-<% if flash[:errors] %>
-    <h2>ERROR</h2>
-    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'layouts/flash' %>
 
 <%= form_for image do |f| %>
     <%= f.label :img_url %><br />

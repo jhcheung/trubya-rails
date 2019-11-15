@@ -1,0 +1,6 @@
+<h1>Edit Question</h1>
+
+<%= render 'form' %> <br />
+
+<%= button_to "Delete", question_path, method: :delete, data:
+{ confirm: "Are you sure you want to delete this question? This will also delete any associated answers." } %>

@@ -1,0 +1,248 @@
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports --------------------------------------------------------------------\
+//@import "../../../smacss/mixins/mixins.smcs";
+//-----------------------------------------------------------------------------/
+
+/*******************************************************************************
+* Default |
+*********/
+
+.play {
+  margin-top: 5%;
+}
+
+.play_-_lives {
+  display: inline;
+
+  i {
+    position: relative;
+    color: #d50000;
+    font-size: 1.5rem;
+    display: inline;
+  }
+}
+
+.play_-_score {
+  text-align: right;
+  color: white;
+  display: inline;
+  //background-color: blue;
+  font-size: 1.5rem;
+}
+
+.play_-_score_--_body {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #424242;
+
+  i, h4{
+    position: absolute;
+  }
+
+  i {
+    top: 15px;
+    left: 10px;
+  }
+
+  h4 {
+    right: 65px;
+    bottom: 2px;
+  }
+}
+
+
+.play_-_image {
+  //height: 100%;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+.play_-_question {
+  margin: 2rem 0;
+}
+
+.play_-_selections {
+  //background-color: green;
+  height: auto;
+}
+
+.play_-_selections_--_select {
+  //width: 254px;
+  height: 60px;
+  border-radius: 30px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.47);
+  background-color: #3d5afe;
+  text-align: center;
+  color: white;
+  margin-top:10px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+
+  h2 {
+    padding-top: 10px;
+  }
+
+  h3 {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #070000;
+    z-index: 1;
+    font-size: 2rem;
+  }
+
+  &::after {
+    content: '';
+    color: #070000;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 52px;
+    height: 51px;
+    border-radius: 26px;
+    box-shadow: inset 0px 3px 7px 0 rgba(0, 0, 0, 0.13);
+    background-color: #eeeeee;
+  }
+}
+
+.play_-_guess {
+  text-align: center;
+  //background-color: yellow;
+  height: auto;
+  position: relative;
+
+  input[type=text] {
+    //width: 350px;
+    height: 63px;
+    //border-radius: 10px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 0;
+    font-size: 1.8rem;
+    box-shadow: inset 0 3px 7px 0 rgba(0, 0, 0, 0.35);
+    //width: 541px;
+    //height: 71px;
+    border-radius: 35.5px;
+    //background-color: #bdbdbd;
+    padding-left: 1rem;
+  }
+
+  input[type=submit]  {
+    //font-family: FontAwesome;
+    //content: "\f128";
+    color: white;
+    position: absolute;
+    top: 52px;
+    right: 64px;
+    //width: 52px;
+    //height: 51px;
+    //padding-top: 0.3rem;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+
+    width: 55px;
+    height: 55px;
+    border-radius: 27.5px;
+    background-color: #F44336;
+    display: block;
+    //background-color: #eb1616;
+  }
+
+  i {
+    display: block;
+    font-size: 2rem;
+    position: absolute;
+    top: 63px;
+    right: 79px;
+    opacity: 95%;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+
+// Animation -------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Bootstrap Overrides ---------------------------------------------------------
+
+// Responsive Screen Sizes -----------------------------------------------------
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

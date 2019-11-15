@@ -2,21 +2,13 @@
 
 <p>Hello, <%= @user.first_name %></p>
 
-<% if flash[:errors] %>
-    <ul>
-        <% flash[:errors].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render 'layouts/flash'%>
 
-<% if flash[:notifications] %>
-    <ul>
-        <% flash[:notifications].each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-<% end %>
+<ul>
+    <li><%= button_to "Start a New Game", new_game_path, method: :get %></li>
+    <li><%= button_to "My Profile", @user, method: :get %></li>
+    <li><%= button_to "Edit Profile", edit_user_path(@user), method: :get %></li>
+    <li><%= button_to "Logout", logout_path, method: :delete, data:
+        { confirm: "Are you sure you want to logout?" } %></li>
+</ul>
 
-
-<%= button_to "Logout", logout_path, method: :delete %>

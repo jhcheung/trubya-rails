@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-3"></div>
-    <div class="main col-6">
+<!--    <div class="col-3"></div>-->
+    <div class="main offset-3 col-6 offset-3">
       <h1>LogIn</h1>
       <%= render 'login_form', url:nil %>
 
@@ -11,6 +11,6 @@
         <%= link_to("Not a user? Sign up!", signup_path, method: :get) %>
       </h5>
     </div>
-    <div class="col-3"></div>
+<!--    <div class="col-3"></div>-->
   </div>
 </div>
