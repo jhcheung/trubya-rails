@@ -37,10 +37,12 @@
 
 .play {
   margin-top: 5%;
+  position: relative;
 }
 
 .play_-_lives {
   display: inline;
+  //background-color: green;
 
   i {
     position: relative;
@@ -56,14 +58,18 @@
   display: inline;
   //background-color: blue;
   font-size: 1.5rem;
+  height: 60px;
 }
 
 .play_-_score_--_body {
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: -15px;
   width: 150px;
   height: 50px;
   border-radius: 25px;
   background-color: #424242;
+  float: right;
 
   i, h4{
     position: absolute;
@@ -75,13 +81,15 @@
   }
 
   h4 {
-    right: 65px;
+    right: 35px;
     bottom: 2px;
   }
 }
 
 
 .play_-_image {
+  //height: 100%;
+  //position: relative;
       // max-width: 100%;
   .img_container0 {
     img {
@@ -206,6 +214,7 @@
 
 .play_-_question {
   margin: 2rem 0;
+  text-align: center;
 }
 
 .play_-_selections {
@@ -215,24 +224,24 @@
 
 .play_-_selections_--_select {
   //width: 254px;
-  height: 60px;
-  border-radius: 30px;
-  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.47);
-  background-color: #3d5afe;
-  text-align: center;
-  color: white;
-  margin-top:10px;
-  margin-bottom: 10px;
-  font-size: 2rem;
-
-  h2 {
-    padding-top: 10px;
+  input[type=submit] {
+    width: 100%;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.47);
+    background-color: #3d5afe;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    border: none;
   }
 
   h3 {
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 20px;
+    left: 34px;
     color: #070000;
     z-index: 1;
     font-size: 2rem;
@@ -242,8 +251,8 @@
     content: '';
     color: #070000;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 15px;
+    left: 20px;
     width: 52px;
     height: 51px;
     border-radius: 26px;
@@ -308,6 +317,47 @@
   }
 }
 
+.play_-_blocks {
+  background-color: red;
+  height: inherit;
+  width: inherit;
+  //padding: inherit;
+  //margin: inherit;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 70%;
+
+  $class-slug: play_-_blocks_--_ !default;
+
+  .play_-_blocks_--_1{
+    //background-color: black;
+    height: 20px;
+    width: calc(100% / 4);
+    position: relative;
+    top: 0;
+    left: 0;
+
+    //position: abso;
+  }
+
+  @for $i from 1 through 4 {
+    $width: percentage(1 / $i);
+
+    .col-#{$i} {
+        width: $width;
+    }
+  }
+
+  //@for $i from 1 through 4
+  //  .#{$class-slug}-#{$i}
+  //  //width: 60px + $i
+  //  width: calc(100% / 4);
+  //  height: 10px;
+
+
+}
 
 
 

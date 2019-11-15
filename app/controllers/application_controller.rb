@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :login_check
-    private 
+    private
 
     def login_check
         @notifications = flash[:notifications]

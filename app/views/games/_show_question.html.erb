@@ -5,7 +5,7 @@
       <div class="play_-_selections_--_select col-5 offset-1 float-left">
           <%= form_tag playing_game_path(@game), method: :patch do %>
             <%= hidden_field_tag 'answer', @answers.first.id %>
-            <h2><%= submit_tag raw(@answers.first.answer) %><h2>
+            <%= submit_tag raw(@answers.first.answer) %>
             <h3>A</h3>
           <% end %>
       </div>
@@ -14,8 +14,9 @@
     <div class="play_-_selections_--_select col-5 offset-1">
           <%= form_tag playing_game_path(@game), method: :patch do %>
             <%= hidden_field_tag 'answer', @answers.second.id %>
-            <h2><%= submit_tag raw(@answers.second.answer) %><h2>
-            <h3>A</h3>
+            <%= submit_tag raw(@answers.second.answer) %>
+<!--            <h2><%#= submit_tag raw(@answers.second.answer) %><h2>-->
+            <h3>B</h3>
           <% end %>
     </div>
   </div>
@@ -25,16 +26,16 @@
     <div class="play_-_selections_--_select col-5 offset-1">
       <%= form_tag playing_game_path(@game), method: :patch do %>
         <%= hidden_field_tag 'answer', @answers.third.id %>
-        <h2><%= submit_tag raw(@answers.third.answer) %><h2>
-        <h3>A</h3>
+        <%= submit_tag raw(@answers.third.answer) %>
+        <h3>C</h3>
       <% end %>
     </div>
 
     <div class="play_-_selections_--_select col-5 offset-1">
           <%= form_tag playing_game_path(@game), method: :patch do %>
             <%= hidden_field_tag 'answer', @answers.fourth.id %>
-            <h2><%= submit_tag raw(@answers.fourth.answer) %><h2>
-            <h3>A</h3>
+            <%= submit_tag raw(@answers.fourth.answer) %>
+            <h3>D</h3>
           <% end %>
     </div>
     <% end %>

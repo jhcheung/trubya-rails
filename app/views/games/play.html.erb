@@ -1,12 +1,15 @@
-
 <%= render 'layouts/header' %>
 
 <div class="container">
   <div class="play">
-<!--  <div class="row">-->
-    <%#= render 'lives' %>
-    <%#= render 'score' %>
-<!--  </div>-->
+    <div class="row">
+      <div class="offset-2 col-8 offset-2">
+        <div class="row">
+      <%= render 'lives' %>
+      <%= render 'score' %>
+        </div>
+      </div>
+    </div>
 
 
     <% if @game.winner == false %>
@@ -16,9 +19,8 @@
       <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
     <% else %>
 
-<!--      <h3><%#= @game.user.username %></h3>-->
-<!--      <h4><%#= @game.topic.name %></h4>-->
-
+      <!--      <h3><%#= @game.user.username %></h3>-->
+      <!--      <h4><%#= @game.topic.name %></h4>-->
 
 
     <% end %>
@@ -27,6 +29,9 @@
 
     <% if @game.winner.nil? %>
 
+  
+      <!--div class="row">
+        <div class="play_-_image offset-2 col-8 offset-2"-->
 <!--    <div class="row">-->
 <!--      <div class="play_-_image offset-2 col-8 offset-2">-->
         <%#= image_tag @image.img_url %>
@@ -40,9 +45,18 @@
           <%= image_tag @image.img_url %>
         </div>
       </div>
-        <%= render 'score' %>
-    </div>
 
+<!--      <div class="row">-->
+        <%#= render 'image_block' %>
+<!--      </div>-->
+
+      <!--    <div class="row">-->
+      <%#= render 'lives' %>
+      <!--      <div class="play_-_image col-8">-->
+      <%#= image_tag @image.img_url %>
+      <!--      </div>-->
+      <%#= render 'score' %>
+      <!--    </div>-->
 
 
       <div class="play_-_question">
@@ -56,8 +70,8 @@
       <div class="row">
         <div class="play_-_guess offset-3 col-6 offset-3">
           <%= form_tag playing_game_path(@game), method: :patch do %>
-  <!--          <%#= label_tag "You can guess the image here!" %><br/>-->
-            <%= text_field_tag :guess, nil, placeholder: "Want to take a chance?",autocomplete: "off" %>
+            <!--          <%#= label_tag "You can guess the image here!" %><br/>-->
+            <%= text_field_tag :guess, nil, placeholder: "Want to take a chance?", autocomplete: "off" %>
             <%= submit_tag "" %>
             <i class="fas fa-question"></i>
           <% end %>
