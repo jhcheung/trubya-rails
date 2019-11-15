@@ -1,9 +1,16 @@
-<%= render 'layouts/flash' %>
+<div class="main_-_form">
 
-<%= form_for image do |f| %>
-    <%= f.label :img_url %><br />
-    <%= f.text_field :img_url %><br />
-    <%= f.label :answer %><br />
-    <%= f.text_field :answer %><br />
-    <%= f.submit %>
-<% end %>
+
+    <%= render 'layouts/flash' %>
+
+    <%= form_for image do |f| %>
+        <center>
+        <%= f.text_field :img_url, placeholder: "Image URL" %><br />
+        <%= f.text_field :answer, placeholder: "Answer" %><br />
+        <%= f.submit %>
+        </center>
+    <% end %>
+    <%= render 'welcome/back_admin_menu' %>
+
+</div>
+

@@ -60,11 +60,17 @@ class GamesController < ApplicationController
         if params[:answer]
             @answer = Answer.find(params[:answer].to_i)
             if @answer.correct
-                flash[:notifications] = ["You have the correct answer! You have earned 100 points and now see more of the image."]
                 @game.score += 100
                 @game.save
+                if @game.score < 1000
+                    flash[:notifications] = ["You have the correct answer! You have earned 100 points and now see more of the image."]
+                elsif @game.score == 1000
+                    flash[:notifications] = ["You have the correct answer! You have earned 100 points and have seen the full image."]
+
+                else
+                    flash[:notifications] = ["You have the correct answer! You have earned 100 points."]
+                end
                 session.delete :question_id
-                #unblur or remove css div that covers
             else
                 flash[:notifications] = ["Incorrect. You've lost a life. Please try again."]
                 session[:lives] -= 1

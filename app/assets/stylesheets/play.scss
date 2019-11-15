@@ -89,13 +89,127 @@
 
 .play_-_image {
   //height: 100%;
-  position: relative;
+  //position: relative;
+      // max-width: 100%;
+  .img_container0 {
+    img {
+      max-width: 100%;
+      height: auto;  
+      border-radius: 10px;
+    }
+    max-height: 10%;
+    overflow: hidden;
+  }
+  .img_container100 {
+    img {
+      max-width: 100%;
+      height: auto;  
+      border-radius: 10px;
+    }
 
-  img {
+    max-height: 20%;
+    overflow: hidden;
+  }
+
+  .img_container200 {
+    img {
+      max-width: 100%;
+      height: auto;  
+      border-radius: 10px;
+    }
+
+    max-height: 30%;
+    overflow: hidden;
+  }
+
+  .img_container300 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 40%;
+    overflow: hidden;
+  }
+
+  .img_container400 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 50%;
+    overflow: hidden;
+  }
+
+  .img_container500 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 60%;
+    overflow: hidden;
+  }
+
+  .img_container600 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 70%;
+    overflow: hidden;
+  }
+
+  .img_container700 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 80%;
+    overflow: hidden;
+  }
+
+  .img_container800 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    max-height: 90%;
+    overflow: hidden;
+  }
+
+  .img_container900 {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+  .img_container {
+    img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    }
   }
+
+
+
+
+
 }
 
 .play_-_question {
@@ -244,6 +358,8 @@
 
 
 }
+
+
 
 
 
