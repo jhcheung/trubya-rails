@@ -36,6 +36,15 @@ class GamesController < ApplicationController
     end
 
     def play
+        @blocks = []
+
+        4.times do |i|
+          @blocks << []
+            4.times do
+              @blocks[i] << 0
+            end
+        end
+
         @image = @game.image
         if session[:question_id]
             @question = Question.find(session[:question_id])   
