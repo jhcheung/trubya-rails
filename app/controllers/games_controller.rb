@@ -36,20 +36,20 @@ class GamesController < ApplicationController
     end
 
     def play
-        @blocks = []
+        # @blocks = []
 
-        4.times do |i|
-          @blocks << []
-            4.times do
-              @blocks[i] << 0
-            end
-        end
+        # 4.times do |i|
+        #   @blocks << []
+        #     4.times do
+        #       @blocks[i] << 0
+        #     end
+        # end
 
         @image = @game.image
         if session[:question_id]
             @question = Question.find(session[:question_id])   
             @answers = @question.randomized_answers
-        else
+        elsif !@game.winner
             @question = @game.topic.random_question
             @answers = @question.randomized_answers
             session[:question_id] = @question.id
@@ -84,6 +84,7 @@ class GamesController < ApplicationController
         elsif params[:guess]
             if @game.image.answer.downcase == params[:guess].downcase
                 flash[:notifications] = ["You've won!"]
+                session.delete :question_id
                 @game.winner = true
                 @game.score += 1000
                 @game.save
@@ -92,6 +93,7 @@ class GamesController < ApplicationController
                 session[:lives] -= 1
                 if session[:lives] == 0
                     flash[:notifications] == ["That was your last life! You lose."]
+                    session.delete :question_id
                     @game.winner = false
                     @game.save
                 end

@@ -21,8 +21,14 @@ class ApplicationController < ActionController::Base
     end
 
     def require_current_user_or_admin
-        unless (@logged_in_user && @logged_in_user == @game.user) || (@logged_in_user && @logged_in_user.admin)
-            redirect_to forbidden_path  
+        if @game 
+            unless (@logged_in_user && @logged_in_user == @game.user) || (@logged_in_user && @logged_in_user.admin)
+                redirect_to forbidden_path  
+            end
+        elsif @user
+            unless (@logged_in_user && @logged_in_user == @user) || (@logged_in_user && @logged_in_user.admin)
+                redirect_to forbidden_path  
+            end
         end
     end
 

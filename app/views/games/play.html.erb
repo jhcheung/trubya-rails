@@ -28,6 +28,15 @@
 
     <% end %>
 
+          <div class="row">
+            <%#= render 'lives' %>
+            <div class="play_-_image offset-2 col-8 offset-2">
+              <div class="img_container<%= @game.score if @game.score < 1000 %>">
+                <%= image_tag @image.img_url %>
+              </div>
+            </div>
+          </div>
+
 
     <% if @game.winner.nil? %>
 
@@ -40,16 +49,6 @@
               <%#= image_tag @image.img_url %>
 <!--            </div>-->
 <!--          </div>-->
-
-          <div class="row">
-            <%#= render 'lives' %>
-            <div class="play_-_image offset-2 col-8 offset-2">
-              <div class="img_container<%= @game.score if @game.score < 1000 %>">
-                <%= image_tag @image.img_url %>
-              </div>
-            </div>
-          </div>
-
             <!--      <div class="row">-->
             <%#= render 'image_block' %>
             <!--      </div>-->
