@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
-    before_action :set_game, only: [:play, :playing, :edit, :update, :show]
-    before_action :require_admin, only: [:index]
+    before_action :set_game, only: [:play, :playing, :edit, :update, :show, :delete]
+    before_action :require_admin, only: [:index, :show, :edit]
+    before_action :require_current_user_or_admin, only: [:play, :playing]
+    before_action :require_logged_in_user, only: [:new]
+
 
     def index
         @games = Game.all
@@ -17,7 +20,12 @@ class GamesController < ApplicationController
     end
 
     def create
-        @game = Game.new user: @logged_in_user, image: Image.unused_random_image(@logged_in_user), topic_id: params[:game][:topic_id], score: 0
+        @game = Game.new(
+            user: @logged_in_user, 
+            image: Image.unused_random_image(@logged_in_user), 
+            topic_id: params[:game][:topic_id], 
+            score: 0
+        )
         if @game.save
             session[:lives] = 10
             redirect_to play_game_path @game
@@ -28,18 +36,18 @@ class GamesController < ApplicationController
     end
 
     def play
-        require_current_user_or_admin
         @image = @game.image
         if session[:question_id]
             @question = Question.find(session[:question_id])   
+            @answers = @question.randomized_answers
         else
             @question = @game.topic.random_question
+            @answers = @question.randomized_answers
             session[:question_id] = @question.id
         end
     end 
 
     def playing
-        require_current_user_or_admin
         if params[:answer]
             @answer = Answer.find(params[:answer].to_i)
             if @answer.correct
@@ -51,11 +59,11 @@ class GamesController < ApplicationController
             else
                 flash[:notifications] = ["Incorrect. You've lost a life. Please try again."]
                 session[:lives] -= 1
+                session.delete :question_id
                 if session[:lives] == 0
                     flash[:notifications] << "That was your last life! You lose."
                     @game.winner = false
                     @game.save
-                    session.delete :question_id
                 end
             end
         elsif params[:guess]
@@ -69,6 +77,7 @@ class GamesController < ApplicationController
                 if session[:lives] == 0
                     flash[:notifications] << "That was your last life! You lose."
                     @game.winner = false
+                    @game.save
                 end
             end
         end
@@ -82,7 +91,9 @@ class GamesController < ApplicationController
     end
 
     def update
-        
+        @game.update game_update_params
+
+        redirect_to @game
     end
 
     def show
@@ -95,10 +106,8 @@ class GamesController < ApplicationController
         @game = Game.find params[:id]
     end
 
-    def require_current_user_or_admin
-        unless (@logged_in_user && @logged_in_user == @game.user) || (@logged_in_user && @logged_in_user.admin)
-            redirect_to forbidden_path  
-        end
+    def game_update_params
+        params.require(:game).permit(:winner, :score)
     end
 
 end

@@ -1,0 +1,6 @@
+<h1>Edit an image </h1>
+
+<%= render 'form', image:@image %>
+
+<%= button_to "Delete", @image, method: :delete, data:
+{ confirm: "Are you sure you want to delete this image?" } %>

@@ -1,0 +1,17 @@
+<% if @game.winner == false %>
+    <h2> <%= @game.user.username %> lost this game!</h2>
+<% elsif @game.winner == true %>
+    <h2><%= @game.user.username %> won with a score of <%= @game.score %>!</h2>
+<% else %>
+    <h2> <%= @game.user.username %> hasn't completed this game yet.</h2>
+
+<% end %>
+
+<h3><%= @game.user.username %></h3>
+<%= image_tag @game.image.img_url %>
+
+
+<h4><%= @game.topic.name%></h4>
+<h4>Score: <%= @game.score %></h4>
+
+<%= button_to "Edit", edit_game_path, method: :get %>

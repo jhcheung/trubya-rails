@@ -34,7 +34,12 @@ Rails.application.routes.draw do
       patch 'playing'
     end
   end
-  resources :users, except: [:new]
+  resources :users, except: [:new] do
+    collection do
+      get 'admin_edit_all'
+      post 'admin_update_all'
+    end
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

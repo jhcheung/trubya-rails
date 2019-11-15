@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+    before_action :set_question, only: [:show, :destroy, :edit, :update]
     before_action :require_admin
     
     def index
@@ -6,7 +7,7 @@ class QuestionsController < ApplicationController
     end
 
     def show
-        @question = Question.find params[:id]
+
     end
 
     def random
@@ -22,7 +23,6 @@ class QuestionsController < ApplicationController
     def random_create
         trivia_api = TriviaApi.new
         trivia_api.change_category params[:category_id]
-        byebug
         topic = Topic.find_by(category_id: params[:category_id])
         flash[:question_ids] = []
         params[:number].to_i.times do
@@ -42,20 +42,40 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        @question
+        @question = Question.new question_params
+
+        
+        if @question.save
+            redirect_to @question
+        else
+            flash[:errors] = @question.errors.full_messages
+            redirect_to new_question_path
+        end
+
     end
 
     def destroy
-        @question = Question.find params[:id]
         @question.destroy
         
         redirect_to questions_path
     end
 
+    def edit
+        
+    end
+
+    def update
+        @question.update question_params
+    end
+
     private
 
+    def set_question
+        @question = Question.find params[:id]
+    end
+
     def question_params
-        params.require(:question).permit(:question, :topic_id, answer_attributes: [ :answer, :correct ])
+        params.require(:question).permit(:question, :topic_id, answers_attributes: [ :answer, :correct ])
     end
 
 end

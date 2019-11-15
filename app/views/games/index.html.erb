@@ -3,9 +3,10 @@
 <ul>
     <% @games.each do |game| %>
 
-        <li><%= link_to game.user.username, play_game_path(game) %><br />
+        <li><%= link_to game.user.username, game.user %><br />
             <ul>
-                <li><%= game.winner ? "Win" : "Loss" %></li>
+                <li><%= link_to (game.winner ? "Win" : "Loss or Incomplete"), play_game_path(game) %></li>
+                <li><%= link_to "Admin View", game %></li>
                 <li><%= game.score %></li>
             </ul>
         </li>
