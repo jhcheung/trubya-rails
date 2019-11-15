@@ -1,3 +1,115 @@
-// Place all the styles related to the games controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/**
+* Example of property order and category naming convention for comment
+********************************************************************************
+* .class {
+*  //------------------------- Font & Text
+*    text-align: val;
+*    text-shadow: val;
+*  //------------------------- Color & Background
+*    background-color: val;
+*    color: val;
+*    opacity: val;
+*  //------------------------- Box
+*    height: val;
+*    width: val;
+*    border-radius: val;
+*  //------------------------- Positioning
+*    position: absolute;
+*    bottom: 0;
+*  //------------------------- List
+*    property: val;
+*  //------------------------- Table
+*    property: val;
+*  //------------------------- Miscellaneous
+*    property: val;
+*  //------------------------- Effect
+*    property: val;
+* }
+*/
+
+// Imports --------------------------------------------------------------------\
+//@import "../../../smacss/mixins/mixins.smcs";
+//-----------------------------------------------------------------------------/
+
+/*******************************************************************************
+* Default |
+*********/
+
+
+
+//body {
+//  background-color: #e3f2fd;
+//  font-family: Ubuntu;
+//}
+
+//.main {
+//  //margin-top: 150px;
+//  margin-top: 10% !important;
+//  background-color: #3d5afe;
+//  position: relative;
+//  border-radius: 12px;
+//  //height: 440px;
+//  height: auto;
+//  box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.45);
+//  color: white;
+//  text-align: center;
+//
+//  h1 {margin: 0.8rem 0;}
+//
+//  h5 {margin-bottom: 2rem;}
+//
+//  a {
+//    color: inherit;
+//    opacity: 80%;
+//  }
+//}
+
+
+
+// Animation -------------------------------------------------------------------
+
+// Active ----------------------------------------------------------------------
+
+// Hover -----------------------------------------------------------------------
+
+// Layouts ---------------------------------------------------------------------
+
+// Bootstrap Overrides ---------------------------------------------------------
+
+// Responsive Screen Sizes -----------------------------------------------------
+
+/*******************************************************************************
+* XS |
+****/
+
+//@include mq('xs') {
+//
+//}
+
+
+/*******************************************************************************
+* SM |
+****/
+
+//@include mq('sm') {
+//
+//}
+
+
+/*******************************************************************************
+* MD |
+****/
+
+//@include mq('md') {
+//
+//}
+
+
+/*******************************************************************************
+* LG |
+****/
+
+//@include mq('lg') {
+//
+//}
+

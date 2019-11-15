@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+    background-color: #e3f2fd;
+    font-family: Ubuntu;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
