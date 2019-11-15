@@ -42,13 +42,17 @@
 
 .play_-_lives {
   display: inline;
+  //padding: 0;
+  margin:0;
   //background-color: green;
 
   i {
+    float: left;
     position: relative;
     color: #d50000;
     font-size: 1.5rem;
-    display: inline;
+    //display: inline;
+    margin: 0 0.3rem;
   }
 }
 
