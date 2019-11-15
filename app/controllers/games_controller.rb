@@ -85,6 +85,7 @@ class GamesController < ApplicationController
             if @game.image.answer.downcase == params[:guess].downcase
                 flash[:notifications] = ["You've won!"]
                 @game.winner = true
+                @game.score += 1000
                 @game.save
             else
                 flash[:notifications] = ["Incorrect. You've lost a life. Please try again."]
