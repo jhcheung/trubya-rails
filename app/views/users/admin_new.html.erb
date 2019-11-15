@@ -6,10 +6,8 @@
     <div class="col-3"></div>
     <div class="main col-6" style="margin-top: 5px;">
         <h1>Create New Admin Form</h1>
-        <%= render 'form', url:admin_signup_path, home_button: nil %>
+        <%= render 'form', user:@user, url:admin_signup_path, home_button: 'welcome/back_admin_menu', default:"https://i.imgur.com/DijIs48.jpg" %>
     </div>
     <div class="col-3"></div>
   </div>
 </div>
-
-<%= render 'welcome/back_admin_menu' %>

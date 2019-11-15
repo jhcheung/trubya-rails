@@ -6,10 +6,8 @@
     <div class="col-3"></div>
     <div class="main col-6" style="margin-top: 5px;">
         <h1>Edit User <%= @user.to_s %></h1>
-        <%= render 'form', user:@user, url: nil, home_button: 'welcome/back_admin_menu' %>
+        <%= render 'form', user:@user, url: nil, home_button: 'welcome/back_user_menu', default: @user.avatar_url %>
     </div>
     <div class="col-3"></div>
   </div>
 </div>
-
-<%= render 'welcome/back_admin_menu' %>

@@ -4,3 +4,5 @@
     <%= f.collection_select :topic_id, Topic.only_enabled, :id, :name, prompt:true %>
     <%= f.submit "Start Game"%>
 <% end %>
+
+        <%= render 'welcome/back_user_menu' %>
