@@ -1,0 +1,26 @@
+<div class="play_-_image offset-2 col-8 offset-2">
+  <%= image_tag @image.img_url %>
+
+  <div class="play_-_blocks">
+    <% column_num = 0 %>
+    <% row_num = 0 %>
+
+    <% @blocks.each do |column| %>
+      <% column_num += 1 %>
+
+      <% column.each do |row| %>
+        <% row_num += 1 %>
+
+        <% if row == 0 %>
+            <%# @blocks[column][row_num] = 1 %>
+<!--          <div class="play_-_blocks_--_<%#= column_num.to_s + row_num.to_s %>"></div>-->
+<!--           <div class="play_-_blocks_--_1><h1>HEELLOO</h1></div>-->
+<!--           <h1>HEELLOO</h1>-->
+          <div class="play_-_blocks_--_1"></div>
+
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
