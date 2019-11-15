@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
 
     def admin_new
-        if @logged_in_user.admin
+        if @logged_in_user && @logged_in_user.admin
             redirect_to admin_home_path
         end
     end
