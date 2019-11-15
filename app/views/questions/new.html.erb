@@ -1,7 +1,13 @@
-<h1>Add a new question!</h1>
+<%= render 'layouts/header' %>
 
-<%= render 'layouts/flash'%>
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="main col-6" style="margin-top: 5px;">
+      <h1>Create New User Form</h1>
+        <%= render 'form'%>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
 
-<%= render 'form'%>
-
-<%= render 'welcome/back_admin_menu' %>

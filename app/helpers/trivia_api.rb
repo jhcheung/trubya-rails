@@ -4,10 +4,15 @@ class TriviaApi
   def initialize
     @url = "https://opentdb.com/api.php?amount=1&category=20"
     @categories = "https://opentdb.com/api_category.php"
+    @url = @url + "&token=" + get_token
   end
 
   def fetch_data(url)
     RestClient.get(url)
+  end
+
+  def get_token
+    get_results(parse_response(fetch_data("https://opentdb.com/api_token.php?command=request")), "token")
   end
 
   def parse_response(response)

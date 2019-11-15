@@ -7,7 +7,7 @@
 <ul>
     <% @user.games.each do |game|%>
         <li><%= link_to (game.winner ? "Win" : "Loss or Incomplete"), play_game_path(game) %></li>
-        <ul><li>Score: <%= game.score %></li>
+        <ul><li>Score: <%= game.score %></li></ul>
     <% end %>
 </ul>
 

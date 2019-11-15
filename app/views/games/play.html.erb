@@ -36,7 +36,9 @@
     <div class="row">
         <%= render 'lives' %>
       <div class="play_-_image col-8">
-        <%= image_tag @image.img_url %>
+        <div class="img_container<%=@game.score if @game.score < 1000 %>">
+          <%= image_tag @image.img_url, class: "img0" %>
+        </div>
       </div>
         <%= render 'score' %>
     </div>
