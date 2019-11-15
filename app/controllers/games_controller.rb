@@ -39,8 +39,10 @@ class GamesController < ApplicationController
         @image = @game.image
         if session[:question_id]
             @question = Question.find(session[:question_id])   
+            @answers = @question.randomized_answers
         else
             @question = @game.topic.random_question
+            @answers = @question.randomized_answers
             session[:question_id] = @question.id
         end
     end 
@@ -75,6 +77,7 @@ class GamesController < ApplicationController
                 if session[:lives] == 0
                     flash[:notifications] << "That was your last life! You lose."
                     @game.winner = false
+                    @game.save
                 end
             end
         end

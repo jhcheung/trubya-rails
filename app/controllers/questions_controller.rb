@@ -42,7 +42,16 @@ class QuestionsController < ApplicationController
     end
 
     def create
-        @question = Question.create questions_params
+        @question = Question.new question_params
+
+        
+        if @question.save
+            redirect_to @question
+        else
+            flash[:errors] = @question.errors.full_messages
+            redirect_to new_question_path
+        end
+
     end
 
     def destroy
@@ -66,7 +75,7 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-        params.require(:question).permit(:question, :topic_id, answer_attributes: [ :answer, :correct ])
+        params.require(:question).permit(:question, :topic_id, answers_attributes: [ :answer, :correct ])
     end
 
 end

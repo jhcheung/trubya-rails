@@ -1,6 +1,15 @@
 
-<h1><%= @user.first_name %></h1>
-<h1><%= @user.last_name %></h1>
+<h1><%= @user.to_s %></h1>
+
+<%= image_tag @user.avatar_url %>
+
+<h2>Games Played</h2>
+<ul>
+    <% @user.games.each do |game|%>
+        <li><%= link_to (game.winner ? "Win" : "Loss or Incomplete"), play_game_path(game) %></li>
+        <ul><li>Score: <%= game.score %></li>
+    <% end %>
+</ul>
 
 <%= link_to "Edit", edit_user_path(@user)%>
 <%= link_to "Delete", @user, method: :delete, data:
