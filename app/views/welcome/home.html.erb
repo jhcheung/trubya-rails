@@ -1,14 +1,32 @@
-<h1>Welcome, <%= @user.username %></h1>
 
-<p>Hello, <%= @user.first_name %></p>
+<%= render 'layouts/header' %>
 
-<%= render 'layouts/flash'%>
+<div class="container">
+  <div class="row">
+<!--    <div class="row">-->
+<!--      <div class="offset-3 col-6 offset-3">-->
+<!--        <h1 style="text-align: center">Welcome, <%#= @user.username %></h1>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
-<ul>
-    <li><%= button_to "Start a New Game", new_game_path, method: :get %></li>
-    <li><%= button_to "My Profile", @user, method: :get %></li>
-    <li><%= button_to "Edit Profile", edit_user_path(@user), method: :get %></li>
-    <li><%= button_to "Logout", logout_path, method: :delete, data:
-        { confirm: "Are you sure you want to logout?" } %></li>
-</ul>
+
+    <div class="main offset-3 col-6 offset-3">
+              <h1 style="text-align: center">Welcome, <%= @user.username %></h1>
+
+            <h3>Main Menu</h3>
+<!--            <h3>Hello, <%#= @user.first_name %></h3>-->
+
+      <%= render 'layouts/flash' %>
+
+      <div class="main_-_buttons">
+        <%= button_to "Start a New Game", new_game_path, method: :get %>
+        <%= button_to "My Profile", @user, method: :get %>
+        <%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+        <%= button_to "Logout", logout_path, method: :delete, data:
+            {confirm: "Are you sure you want to logout?"} %>
+      </div>
+    </div>
+  </div>
+</div>
 

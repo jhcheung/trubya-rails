@@ -1,8 +1,18 @@
-<h1>Start a new game!</h1>
 
-<%= form_for @game do |f| %>
-    <%= f.collection_select :topic_id, Topic.only_enabled, :id, :name, prompt:true %>
-    <%= f.submit "Start Game"%>
-<% end %>
+<%= render 'layouts/header' %>
 
-        <%= render 'welcome/back_user_menu' %>
+<div class="container">
+  <div class="row">
+    <div class="main offset-3 col-6 offset-3">
+      <h1>Start a new game!</h1>
+
+      <%= form_for @game do |f| %>
+        <%= f.collection_select :topic_id, Topic.only_enabled, :id, :name, prompt:true %>
+        <%= f.submit "Start Game"%>
+      <% end %>
+
+      <%= render 'welcome/back_user_menu' %>
+
+    </div>
+  </div>
+</div>
