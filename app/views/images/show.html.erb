@@ -1,5 +1,6 @@
 <h1><%= @image.answer %></h1>
 
-<%= image_tag @image.img_url %><br />
-
+    <div class="img_container"> 
+        <%= image_tag @image.img_url %><br />
+    </div>
 <%= button_to "Edit", edit_image_path(@image), method: :get %>

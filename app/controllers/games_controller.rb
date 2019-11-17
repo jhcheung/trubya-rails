@@ -49,10 +49,12 @@ class GamesController < ApplicationController
         if session[:question_id]
             @question = Question.find(session[:question_id])   
             @answers = @question.randomized_answers
-        elsif !@game.winner
+        elsif @game.winner.nil?
             @question = @game.topic.random_question
             @answers = @question.randomized_answers
             session[:question_id] = @question.id
+        elsif @game.winner == true || @game.winner == false
+            session.delete :question_id
         end
     end 
 
