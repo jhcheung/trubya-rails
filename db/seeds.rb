@@ -18,8 +18,8 @@ categories.each do |category|
     Topic.create(name: category["name"], category_id: category["id"])
 end
 
-user = User.create(username: "jp7", password: "yolo", first_name: "Jeffrey", last_name: "Paulino", admin: true)
-user2 = User.create(username: "jimmyc", password: "password", first_name: "Jimmy", last_name: "Cheung", admin: true)
+user = User.create(username: "jp7", password: "yolo", first_name: "Jeffrey", last_name: "P", admin: true)
+user2 = User.create(username: "jimmyc", password: "password", first_name: "Jimmy", last_name: "C", admin: true)
 
 image1 = Image.create(img_url: "https://mk0patonixing8t2q1dw.kinstacdn.com/wp-content/uploads/2019/07/cropped_MI_main_harry_potter.jpg", answer: "Harry Potter")
 image2 = Image.create(img_url: "https://i.ytimg.com/vi/nlGyoBZZdeQ/maxresdefault.jpg", answer: "naruto run")
