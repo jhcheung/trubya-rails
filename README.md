@@ -7,16 +7,17 @@ Trivia game built with Rails with picture guessing element
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-Have Ruby already installed on machine. 
+Ruby
+Rails
 
-Then, just bundle install in the root directory.
+### Running on local machine
+
+First, install the dependencies of the app by running the following command in the root directory:
 
 ```
 bundle install
 ```
 
-
-### Running
 
 After you have bundle installed, you can now run the rails server with this:
 
@@ -24,4 +25,10 @@ After you have bundle installed, you can now run the rails server with this:
 rails s
 ```
 
-Then, you can navigate to localhost:3000 and sign up for a new account. You can also navigate to localhost:3000/admin/signup to signup for an admin account.
+Then, please seed the database with the following command:
+
+```
+rake db:seed
+```
+
+Then, you can navigate to /signup and sign up for a new account. You can also navigate to /admin/login to login to the admin panel with the credentials: 'jimmyc/password'.
