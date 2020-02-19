@@ -15,10 +15,13 @@ Rails
 
 ### Running on local machine
 
-First, install the dependencies of the app by running the following command in the root directory:
+First, install the dependencies of the app/set up the database by running the following commands in the root directory:
 
 ```
 bundle install
+
+rake db:migrate
+
 ```
 
 
