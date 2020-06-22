@@ -37,4 +37,6 @@ Then, please seed the database with the following command:
 rake db:seed
 ```
 
-Then, you can navigate to /signup and sign up for a new account. You can also navigate to /admin/login to login to the admin panel with the credentials: 'jimmyc/password'.
+Then, you can navigate to localhost:3000/signup and sign up for a new account. You can also navigate to /admin/login to login to the admin panel with the credentials: 'jimmyc/password'.
+
+Then, you can click "Start Game" to play!
