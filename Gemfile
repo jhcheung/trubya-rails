@@ -7,11 +7,14 @@ ruby '2.6.1'
 gem "nokogiri", ">= 1.10.8"
 
 
+
 gem 'bcrypt'
 gem 'rest-client'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
+gem "activesupport", ">= 6.0.3.1"
+
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
