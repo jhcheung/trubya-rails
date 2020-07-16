@@ -40,3 +40,11 @@ rake db:seed
 Then, you can navigate to localhost:3000/signup and sign up for a new account. You can also navigate to /admin/login to login to the admin panel with the credentials: 'jimmyc/password'.
 
 Then, you can click "Start Game" to play!
+
+### How to play
+
+The goal of the game is to guess the picture that is being revealed on the webpage.
+
+You start every game with ten lives. You will answer trivia questions to reveal more of the image. Every correct answer will provide you another segment of the image.
+
+Every incorrect answer to the trivia question or incorrect guess for the picture will lose you a life.
