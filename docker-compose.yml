@@ -6,6 +6,9 @@ services:
       - ./tmp/database:/var/lib/postgresql/data
     environment:
         POSTGRES_USER: postgres
+    labels:
+        com.datadoghq.ad.logs: '[{"source": "trubya-rails_db_1", "service": "database"}]'
+    
      
   web:
     build: .
@@ -16,5 +19,12 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    environment: : 
-        DD_TRACE_ANALYTICS_ENABLED: true
+    environment:
+        - DD_TRACE_ANALYTICS_ENABLED=true
+    labels:
+        com.datadoghq.ad.logs: '[{"source": "trubya-rails_web_1", "service": "webapp"}]'
+
+networks:   
+    default:
+        external:
+            name: datadog_network
