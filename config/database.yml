@@ -19,7 +19,11 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  host: db
+  username: postgres
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -82,9 +86,9 @@ test:
 #
 production:
   <<: *default
-  database: trubya_rails_production
-  username: trubya_rails
-  password: <%= ENV['TRUBYA_RAILS_DATABASE_PASSWORD'] %>
+  # database: trubya_rails_production
+  # username: trubya_rails
+  # password: <%= ENV['TRUBYA_RAILS_DATABASE_PASSWORD'] %>
 
 #  username: jeff
 #  password: 123456
