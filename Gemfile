@@ -6,7 +6,7 @@ ruby '2.6.1'
 
 gem "nokogiri", ">= 1.10.8"
 
-
+gem 'figaro'
 
 gem 'bcrypt'
 gem 'rest-client'
