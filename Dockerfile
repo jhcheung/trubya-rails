@@ -1,14 +1,15 @@
 FROM ruby:2.6.1
+ENV BUNDLER_VERSION=2.0.2
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
-RUN mkdir /myapp
-WORKDIR /myapp
+WORKDIR /app
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+COPY Gemfile ./
+COPY Gemfile.lock ./
 
 RUN gem install bundler -v 2.0.2
-RUN bundle install
+RUN bundle check || bundle install
 
-COPY . /myapp
+COPY . ./
+ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
