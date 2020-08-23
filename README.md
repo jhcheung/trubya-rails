@@ -41,6 +41,15 @@ Then, you can navigate to localhost:3000/signup and sign up for a new account. Y
 
 Then, you can click "Start Game" to play!
 
+### Running on Docker
+
+# see https://docs.docker.com/compose/rails/
+```
+docker-compose build
+docker-compose run web rake db:create db:migrate db:seed
+docker-compose up
+```
+
 ### How to play
 
 The goal of the game is to guess the picture that is being revealed on the webpage.
