@@ -21,7 +21,6 @@ First, install the dependencies of the app/set up the database by running the fo
 bundle install
 
 rake db:migrate
-
 ```
 
 
